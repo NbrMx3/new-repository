@@ -19,3 +19,5 @@ out/
 .vercel/
 frontend/dist/
 frontend/build/
+.vercel
+.env*.local
