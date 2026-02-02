@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
+import { useToast } from '../context/ToastContext';
+import { useRecentlyViewed } from '../context/RecentlyViewedContext';
 import { productService } from '../services/productService';
+import ProductReviews from '../components/ProductReviews';
+import RecentlyViewed from '../components/RecentlyViewed';
 import './ProductDetailPage.css';
 
 const ProductDetailPage = () => {
@@ -9,14 +14,19 @@ const ProductDetailPage = () => {
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
-  const [addedToCart, setAddedToCart] = useState(false);
   const { addToCart } = useCart();
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const { addToRecentlyViewed } = useRecentlyViewed();
+  const toast = useToast();
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const prod = await productService.getProductById(parseInt(id));
         setProduct(prod);
+        if (prod) {
+          addToRecentlyViewed(prod);
+        }
         setLoading(false);
       } catch (error) {
         console.error('Error fetching product:', error);
@@ -32,8 +42,16 @@ const ProductDetailPage = () => {
       for (let i = 0; i < quantity; i++) {
         addToCart(product);
       }
-      setAddedToCart(true);
-      setTimeout(() => setAddedToCart(false), 2000);
+      toast.success(`${product.name} added to cart!`);
+    }
+  };
+
+  const handleToggleWishlist = () => {
+    const added = toggleWishlist(product);
+    if (added) {
+      toast.success(`${product.name} added to wishlist!`);
+    } else {
+      toast.info(`${product.name} removed from wishlist`);
     }
   };
 
@@ -83,12 +101,12 @@ const ProductDetailPage = () => {
 
           <div className="price-section">
             <div className="price-container">
-              <span className="current-price">¥{product.price.toFixed(2)}</span>
+              <span className="current-price">${product.price.toFixed(2)}</span>
               {product.originalPrice > product.price && (
                 <>
-                  <span className="original-price">¥{product.originalPrice.toFixed(2)}</span>
+                  <span className="original-price">${product.originalPrice.toFixed(2)}</span>
                   <span className="save-amount">
-                    Save ¥{(product.originalPrice - product.price).toFixed(2)}
+                    Save ${(product.originalPrice - product.price).toFixed(2)}
                   </span>
                 </>
               )}
@@ -134,10 +152,17 @@ const ProductDetailPage = () => {
 
             <button 
               onClick={handleAddToCart}
-              className={`add-to-cart-btn ${addedToCart ? 'added' : ''}`}
+              className="add-to-cart-btn"
               disabled={!product.inStock}
             >
-              {addedToCart ? '✓ Added to Cart' : 'Add to Cart'}
+              Add to Cart
+            </button>
+
+            <button 
+              onClick={handleToggleWishlist}
+              className={`wishlist-btn ${isInWishlist(product.id) ? 'active' : ''}`}
+            >
+              {isInWishlist(product.id) ? '❤️ In Wishlist' : '🤍 Add to Wishlist'}
             </button>
           </div>
 
@@ -154,6 +179,14 @@ const ProductDetailPage = () => {
           </div>
         </div>
       </div>
+
+      <ProductReviews 
+        productId={product.id} 
+        productRating={product.rating}
+        totalReviews={product.reviews}
+      />
+
+      <RecentlyViewed />
     </div>
   );
 };

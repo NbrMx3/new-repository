@@ -1,0 +1,31 @@
+{
+  "name": "new-repository",
+  "version": "1.0.0",
+  "description": "A web project converted into a downloadable application using Electron.",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "cd frontend && npm start"
+  },
+  "dependencies": {
+    "electron": "^25.0.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/new-repository.git"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "web",
+    "application"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/new-repository/issues"
+  },
+  "homepage": "https://github.com/yourusername/new-repository#readme"
+}

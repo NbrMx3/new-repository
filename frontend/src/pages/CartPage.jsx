@@ -36,7 +36,7 @@ const CartPage = () => {
                   <div className="item-details">
                     <h3>{item.name}</h3>
                     <p className="item-category">{item.category}</p>
-                    <p className="item-price">¥{item.price.toFixed(2)}</p>
+                    <p className="item-price">${item.price.toFixed(2)}</p>
                   </div>
 
                   <div className="item-quantity">
@@ -61,7 +61,7 @@ const CartPage = () => {
                   </div>
 
                   <div className="item-total">
-                    ¥{(item.price * item.quantity).toFixed(2)}
+                    ${(item.price * item.quantity).toFixed(2)}
                   </div>
 
                   <button 
@@ -81,7 +81,7 @@ const CartPage = () => {
               
               <div className="summary-row">
                 <span>Subtotal:</span>
-                <span>¥{getTotalPrice().toFixed(2)}</span>
+                <span>${getTotalPrice().toFixed(2)}</span>
               </div>
 
               <div className="summary-row">
@@ -91,19 +91,19 @@ const CartPage = () => {
 
               <div className="summary-row">
                 <span>Tax:</span>
-                <span>¥{(getTotalPrice() * 0.1).toFixed(2)}</span>
+                <span>${(getTotalPrice() * 0.1).toFixed(2)}</span>
               </div>
 
               <div className="summary-divider"></div>
 
               <div className="summary-row total">
                 <span>Total:</span>
-                <span>¥{(getTotalPrice() * 1.1).toFixed(2)}</span>
+                <span>${(getTotalPrice() * 1.1).toFixed(2)}</span>
               </div>
 
-              <button className="checkout-btn">
+              <Link to="/checkout" className="checkout-btn">
                 Proceed to Checkout
-              </button>
+              </Link>
 
               <Link to="/products" className="continue-shopping-link">
                 Continue Shopping

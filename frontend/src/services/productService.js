@@ -1,160 +1,478 @@
 // Mock product data - simulating an API
 const mockProducts = [
-  {
-    id: 1,
-    name: 'Wireless Bluetooth Headphones',
-    price: 29.99,
-    originalPrice: 59.99,
-    image: 'https://via.placeholder.com/300x300?text=Headphones',
-    category: 'Electronics',
-    rating: 4.5,
-    reviews: 1250,
-    description: 'High-quality wireless headphones with noise cancellation',
-    inStock: true
-  },
-  {
-    id: 2,
-    name: 'USB-C Cable 2m',
-    price: 8.99,
-    originalPrice: 15.99,
-    image: 'https://via.placeholder.com/300x300?text=USB+Cable',
-    category: 'Cables & Adapters',
-    rating: 4.8,
-    reviews: 2100,
-    description: 'Fast charging USB-C cable compatible with all devices',
-    inStock: true
-  },
-  {
-    id: 3,
-    name: 'Phone Screen Protector',
-    price: 5.99,
-    originalPrice: 12.99,
-    image: 'https://via.placeholder.com/300x300?text=Screen+Protector',
-    category: 'Phone Accessories',
-    rating: 4.6,
-    reviews: 890,
-    description: 'Tempered glass screen protector for smartphones',
-    inStock: true
-  },
-  {
-    id: 4,
-    name: 'Portable Power Bank',
-    price: 19.99,
-    originalPrice: 39.99,
-    image: 'https://via.placeholder.com/300x300?text=Power+Bank',
-    category: 'Electronics',
-    rating: 4.7,
-    reviews: 3400,
-    description: '20000mAh portable power bank with fast charging',
-    inStock: true
-  },
-  {
-    id: 5,
-    name: 'LED Desk Lamp',
-    price: 24.99,
-    originalPrice: 49.99,
-    image: 'https://via.placeholder.com/300x300?text=Desk+Lamp',
-    category: 'Lighting',
-    rating: 4.4,
-    reviews: 567,
-    description: 'Adjustable LED desk lamp with USB charging port',
-    inStock: true
-  },
-  {
-    id: 6,
-    name: 'Wireless Mouse',
-    price: 12.99,
-    originalPrice: 29.99,
-    image: 'https://via.placeholder.com/300x300?text=Wireless+Mouse',
-    category: 'Computer Accessories',
-    rating: 4.5,
-    reviews: 1876,
-    description: 'Ergonomic wireless mouse with precision tracking',
-    inStock: true
-  },
-  {
-    id: 7,
-    name: 'Phone Stand',
-    price: 9.99,
-    originalPrice: 19.99,
-    image: 'https://via.placeholder.com/300x300?text=Phone+Stand',
-    category: 'Phone Accessories',
-    rating: 4.3,
-    reviews: 745,
-    description: 'Adjustable phone stand for desk or travel',
-    inStock: true
-  },
-  {
-    id: 8,
-    name: 'Webcam HD 1080p',
-    price: 34.99,
-    originalPrice: 69.99,
-    image: 'https://via.placeholder.com/300x300?text=Webcam',
-    category: 'Electronics',
-    rating: 4.6,
-    reviews: 2234,
-    description: 'Full HD 1080p webcam with auto focus',
-    inStock: true
-  },
-  {
-    id: 9,
-    name: 'Keyboard Mechanical',
-    price: 44.99,
-    originalPrice: 89.99,
-    image: 'https://via.placeholder.com/300x300?text=Keyboard',
-    category: 'Computer Accessories',
-    rating: 4.7,
-    reviews: 1650,
-    description: 'Mechanical RGB keyboard with quiet switches',
-    inStock: true
-  },
-  {
-    id: 10,
-    name: 'Phone Charger 65W',
-    price: 22.99,
-    originalPrice: 45.99,
-    image: 'https://via.placeholder.com/300x300?text=Charger',
-    category: 'Cables & Adapters',
-    rating: 4.8,
-    reviews: 3100,
-    description: 'Fast 65W charger compatible with most devices',
-    inStock: true
-  },
-  {
-    id: 11,
-    name: 'Tablet Screen Protector',
-    price: 6.99,
-    originalPrice: 14.99,
-    image: 'https://via.placeholder.com/300x300?text=Tablet+Protector',
-    category: 'Tablet Accessories',
-    rating: 4.4,
-    reviews: 432,
-    description: 'Premium tempered glass for tablets',
-    inStock: true
-  },
-  {
-    id: 12,
-    name: 'Bluetooth Speaker',
-    price: 39.99,
-    originalPrice: 79.99,
-    image: 'https://via.placeholder.com/300x300?text=Speaker',
-    category: 'Electronics',
-    rating: 4.6,
-    reviews: 2876,
-    description: 'Waterproof portable Bluetooth speaker',
-    inStock: true
-  }
+  // Electronics
+  { id: 1, name: 'Wireless Bluetooth Headphones', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.5, reviews: 1250, description: 'High-quality wireless headphones with noise cancellation', inStock: true },
+  { id: 2, name: 'Portable Power Bank 20000mAh', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.7, reviews: 3400, description: '20000mAh portable power bank with fast charging', inStock: true },
+  { id: 3, name: 'Webcam HD 1080p', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.6, reviews: 2234, description: 'Full HD 1080p webcam with auto focus', inStock: true },
+  { id: 4, name: 'Bluetooth Speaker Waterproof', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.6, reviews: 2876, description: 'Waterproof portable Bluetooth speaker', inStock: true },
+  { id: 5, name: 'Smart Watch Fitness Tracker', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.4, reviews: 1890, description: 'Fitness tracker with heart rate monitor and GPS', inStock: true },
+  { id: 6, name: 'Wireless Earbuds Pro', price: 59.99, originalPrice: 119.99, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.7, reviews: 4520, description: 'True wireless earbuds with active noise cancellation', inStock: true },
+  { id: 7, name: 'Digital Voice Recorder', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.3, reviews: 678, description: 'Professional voice recorder with 32GB storage', inStock: true },
+  { id: 8, name: 'Portable Bluetooth Radio', price: 29.99, originalPrice: 54.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.2, reviews: 432, description: 'Retro-style portable radio with Bluetooth connectivity', inStock: true },
+  { id: 9, name: 'Action Camera 4K', price: 79.99, originalPrice: 149.99, image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.5, reviews: 2100, description: '4K action camera with waterproof case', inStock: true },
+  { id: 10, name: 'Mini Projector HD', price: 89.99, originalPrice: 179.99, image: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.4, reviews: 1567, description: 'Portable HD projector for home theater', inStock: true },
+
+  // Computer Accessories
+  { id: 11, name: 'Wireless Mouse Ergonomic', price: 12.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.5, reviews: 1876, description: 'Ergonomic wireless mouse with precision tracking', inStock: true },
+  { id: 12, name: 'Mechanical RGB Keyboard', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.7, reviews: 1650, description: 'Mechanical RGB keyboard with quiet switches', inStock: true },
+  { id: 13, name: 'USB Hub 7-Port', price: 18.99, originalPrice: 34.99, image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.6, reviews: 2340, description: '7-port USB 3.0 hub with power adapter', inStock: true },
+  { id: 14, name: 'Laptop Stand Aluminum', price: 27.99, originalPrice: 54.99, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.8, reviews: 3210, description: 'Adjustable aluminum laptop stand for better ergonomics', inStock: true },
+  { id: 15, name: 'Gaming Mouse Pad XL', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.5, reviews: 1432, description: 'Extra large gaming mouse pad with RGB lighting', inStock: true },
+  { id: 16, name: 'External SSD 500GB', price: 54.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.7, reviews: 2890, description: 'Portable external SSD with fast transfer speeds', inStock: true },
+  { id: 17, name: 'Webcam Cover Slide', price: 4.99, originalPrice: 9.99, image: 'https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.4, reviews: 5670, description: 'Privacy webcam cover for laptops and monitors', inStock: true },
+  { id: 18, name: 'Monitor Riser with Storage', price: 32.99, originalPrice: 64.99, image: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.6, reviews: 1234, description: 'Monitor stand with drawer storage compartment', inStock: true },
+  { id: 19, name: 'Wireless Keyboard Compact', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.3, reviews: 987, description: 'Compact wireless keyboard with rechargeable battery', inStock: true },
+  { id: 20, name: 'Cable Management Kit', price: 11.99, originalPrice: 24.99, image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.5, reviews: 2100, description: 'Complete cable management solution for desks', inStock: true },
+
+  // Cables & Adapters
+  { id: 21, name: 'USB-C Cable 2m', price: 8.99, originalPrice: 15.99, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.8, reviews: 2100, description: 'Fast charging USB-C cable compatible with all devices', inStock: true },
+  { id: 22, name: 'Phone Charger 65W', price: 22.99, originalPrice: 45.99, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.8, reviews: 3100, description: 'Fast 65W charger compatible with most devices', inStock: true },
+  { id: 23, name: 'HDMI Cable 4K 3m', price: 12.99, originalPrice: 24.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.7, reviews: 1890, description: 'High-speed HDMI cable supporting 4K resolution', inStock: true },
+  { id: 24, name: 'USB-C to USB-A Adapter', price: 6.99, originalPrice: 12.99, image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.6, reviews: 3450, description: 'USB-C to USB-A adapter for legacy devices', inStock: true },
+  { id: 25, name: 'Lightning Cable 1.5m', price: 9.99, originalPrice: 19.99, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.5, reviews: 2670, description: 'MFi certified Lightning cable for Apple devices', inStock: true },
+  { id: 26, name: 'Multi-Port Charger 100W', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.7, reviews: 1234, description: '4-port 100W GaN charger for all devices', inStock: true },
+  { id: 27, name: 'DisplayPort Cable 2m', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.6, reviews: 876, description: 'DisplayPort 1.4 cable for high refresh rate monitors', inStock: true },
+  { id: 28, name: 'USB-C Dock 10-in-1', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.5, reviews: 2100, description: 'All-in-one USB-C docking station with multiple ports', inStock: true },
+  { id: 29, name: 'Ethernet Cable Cat6 5m', price: 7.99, originalPrice: 14.99, image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.8, reviews: 1567, description: 'Cat6 Ethernet cable for reliable wired connection', inStock: true },
+  { id: 30, name: 'Wireless Charger Pad', price: 16.99, originalPrice: 34.99, image: 'https://images.unsplash.com/photo-1622445275576-721325763afe?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.4, reviews: 3210, description: '15W fast wireless charging pad', inStock: true },
+
+  // Phone Accessories
+  { id: 31, name: 'Phone Screen Protector', price: 5.99, originalPrice: 12.99, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.6, reviews: 890, description: 'Tempered glass screen protector for smartphones', inStock: true },
+  { id: 32, name: 'Phone Stand Adjustable', price: 9.99, originalPrice: 19.99, image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.3, reviews: 745, description: 'Adjustable phone stand for desk or travel', inStock: true },
+  { id: 33, name: 'Car Phone Mount Magnetic', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.5, reviews: 2340, description: 'Magnetic car mount for dashboard or vent', inStock: true },
+  { id: 34, name: 'Phone Grip Ring Holder', price: 6.99, originalPrice: 12.99, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.4, reviews: 4560, description: 'Rotating ring holder and kickstand for phones', inStock: true },
+  { id: 35, name: 'Selfie Stick Tripod', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.3, reviews: 1890, description: 'Bluetooth selfie stick with tripod stand', inStock: true },
+  { id: 36, name: 'Phone Lens Kit 3-in-1', price: 17.99, originalPrice: 34.99, image: 'https://images.unsplash.com/photo-1551048632-24e444b48a3e?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.2, reviews: 987, description: 'Wide angle, macro, and fisheye lens kit', inStock: true },
+  { id: 37, name: 'Waterproof Phone Pouch', price: 8.99, originalPrice: 17.99, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.6, reviews: 3210, description: 'IPX8 waterproof pouch for swimming and beach', inStock: true },
+  { id: 38, name: 'Phone Cleaning Kit', price: 7.99, originalPrice: 15.99, image: 'https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.5, reviews: 1234, description: 'Complete phone and screen cleaning kit', inStock: true },
+  { id: 39, name: 'MagSafe Wallet', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.4, reviews: 2100, description: 'Magnetic wallet attachment for MagSafe phones', inStock: true },
+  { id: 40, name: 'Phone Armband Running', price: 12.99, originalPrice: 24.99, image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.3, reviews: 1567, description: 'Sweat-resistant armband for running and gym', inStock: true },
+
+  // Tablet Accessories
+  { id: 41, name: 'Tablet Screen Protector', price: 6.99, originalPrice: 14.99, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.4, reviews: 432, description: 'Premium tempered glass for tablets', inStock: true },
+  { id: 42, name: 'Tablet Stand Foldable', price: 18.99, originalPrice: 36.99, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.6, reviews: 1890, description: 'Adjustable foldable stand for tablets', inStock: true },
+  { id: 43, name: 'Stylus Pen Universal', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.3, reviews: 2340, description: 'Universal stylus pen for touchscreens', inStock: true },
+  { id: 44, name: 'Tablet Keyboard Case', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.5, reviews: 1234, description: 'Protective case with built-in keyboard', inStock: true },
+  { id: 45, name: 'Tablet Sleeve 11 inch', price: 16.99, originalPrice: 32.99, image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.7, reviews: 876, description: 'Padded sleeve for 11-inch tablets', inStock: true },
+  { id: 46, name: 'Drawing Glove Artist', price: 8.99, originalPrice: 17.99, image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.4, reviews: 567, description: 'Anti-smudge glove for digital artists', inStock: true },
+  { id: 47, name: 'Tablet Pillow Stand', price: 22.99, originalPrice: 44.99, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.2, reviews: 1100, description: 'Soft pillow stand for reading in bed', inStock: true },
+  { id: 48, name: 'USB-C Hub for iPad', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.5, reviews: 2100, description: 'Multi-port hub designed for iPad Pro', inStock: true },
+  { id: 49, name: 'Tablet Wall Mount', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.3, reviews: 654, description: 'Secure wall mount for tablets', inStock: true },
+  { id: 50, name: 'Paperlike Screen Film', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.6, reviews: 3450, description: 'Matte screen protector with paper-like texture', inStock: true },
+
+  // Lighting
+  { id: 51, name: 'LED Desk Lamp', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.4, reviews: 567, description: 'Adjustable LED desk lamp with USB charging port', inStock: true },
+  { id: 52, name: 'LED Strip Lights 5m', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.5, reviews: 4560, description: 'RGB LED strip lights with remote control', inStock: true },
+  { id: 53, name: 'Ring Light 10 inch', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.6, reviews: 2340, description: 'LED ring light with tripod for streaming', inStock: true },
+  { id: 54, name: 'Monitor Light Bar', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.7, reviews: 1890, description: 'Screen light bar with adjustable brightness', inStock: true },
+  { id: 55, name: 'Night Light Plug-in', price: 9.99, originalPrice: 19.99, image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.3, reviews: 3210, description: 'Motion sensor night light for hallways', inStock: true },
+  { id: 56, name: 'USB Book Light', price: 7.99, originalPrice: 15.99, image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.4, reviews: 1234, description: 'Rechargeable clip-on book light', inStock: true },
+  { id: 57, name: 'Smart Bulb WiFi', price: 12.99, originalPrice: 24.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.5, reviews: 5670, description: 'WiFi smart bulb with voice control', inStock: true },
+  { id: 58, name: 'Sunset Lamp Projector', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.2, reviews: 2100, description: 'Aesthetic sunset projection lamp', inStock: true },
+  { id: 59, name: 'Galaxy Projector', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.6, reviews: 3450, description: 'Star and galaxy projector with Bluetooth speaker', inStock: true },
+  { id: 60, name: 'Under Cabinet Lights', price: 22.99, originalPrice: 44.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.5, reviews: 1567, description: 'Motion sensor under cabinet LED lights', inStock: true },
+
+  // Home & Office
+  { id: 61, name: 'Desk Organizer Wood', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.5, reviews: 1234, description: 'Wooden desk organizer with multiple compartments', inStock: true },
+  { id: 62, name: 'Wireless Doorbell', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.4, reviews: 2340, description: 'Wireless doorbell with multiple chimes', inStock: true },
+  { id: 63, name: 'Digital Thermometer', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.3, reviews: 876, description: 'Indoor digital thermometer and hygrometer', inStock: true },
+  { id: 64, name: 'USB Mini Fan', price: 11.99, originalPrice: 23.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.2, reviews: 1890, description: 'Quiet USB powered desk fan', inStock: true },
+  { id: 65, name: 'Desk Mat Leather', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.6, reviews: 2100, description: 'Large PU leather desk mat pad', inStock: true },
+  { id: 66, name: 'Paper Shredder Mini', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.3, reviews: 567, description: 'Compact paper shredder for home office', inStock: true },
+  { id: 67, name: 'Label Maker Portable', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.5, reviews: 1567, description: 'Portable label maker with Bluetooth', inStock: true },
+  { id: 68, name: 'Electric Pencil Sharpener', price: 16.99, originalPrice: 32.99, image: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.4, reviews: 987, description: 'Heavy duty electric pencil sharpener', inStock: true },
+  { id: 69, name: 'Whiteboard Magnetic', price: 27.99, originalPrice: 54.99, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.5, reviews: 1234, description: 'Magnetic dry erase whiteboard with markers', inStock: true },
+  { id: 70, name: 'Document Scanner Portable', price: 79.99, originalPrice: 159.99, image: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.6, reviews: 654, description: 'Portable document and photo scanner', inStock: true },
+
+  // Gaming
+  { id: 71, name: 'Gaming Headset 7.1', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1599669454699-248893623440?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.6, reviews: 3450, description: '7.1 surround sound gaming headset with mic', inStock: true },
+  { id: 72, name: 'Controller Stand RGB', price: 18.99, originalPrice: 36.99, image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.4, reviews: 1234, description: 'Dual controller charging stand with RGB', inStock: true },
+  { id: 73, name: 'Gaming Chair Cushion', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1616627561839-074385245ff6?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.3, reviews: 876, description: 'Memory foam cushion for gaming chairs', inStock: true },
+  { id: 74, name: 'Headphone Stand RGB', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1599669454699-248893623440?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.5, reviews: 2100, description: 'RGB headphone stand with USB hub', inStock: true },
+  { id: 75, name: 'Controller Thumb Grips', price: 6.99, originalPrice: 13.99, image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.4, reviews: 4560, description: 'Silicone thumb grips for controllers', inStock: true },
+  { id: 76, name: 'Gaming Desk Mat XXL', price: 22.99, originalPrice: 44.99, image: 'https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.6, reviews: 1890, description: 'Extra large gaming desk mat with RGB edge', inStock: true },
+  { id: 77, name: 'Capture Card 4K', price: 89.99, originalPrice: 179.99, image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.5, reviews: 987, description: '4K capture card for streaming', inStock: true },
+  { id: 78, name: 'Gaming Mouse Bungee', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.3, reviews: 1567, description: 'Mouse cable management bungee', inStock: true },
+  { id: 79, name: 'Stream Deck Mini', price: 59.99, originalPrice: 119.99, image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.7, reviews: 2340, description: 'LCD key controller for streaming', inStock: true },
+  { id: 80, name: 'VR Headset Stand', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.4, reviews: 654, description: 'Universal VR headset and controller stand', inStock: true },
+
+  // Audio
+  { id: 81, name: 'Podcast Microphone USB', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300&h=300&fit=crop', category: 'Audio', rating: 4.6, reviews: 2340, description: 'USB condenser microphone for podcasting', inStock: true },
+  { id: 82, name: 'Microphone Boom Arm', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300&h=300&fit=crop', category: 'Audio', rating: 4.5, reviews: 1890, description: 'Adjustable boom arm for microphones', inStock: true },
+  { id: 83, name: 'Pop Filter', price: 9.99, originalPrice: 19.99, image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300&h=300&fit=crop', category: 'Audio', rating: 4.4, reviews: 3210, description: 'Dual layer pop filter for recording', inStock: true },
+  { id: 84, name: 'Headphone Amp DAC', price: 69.99, originalPrice: 139.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Audio', rating: 4.7, reviews: 876, description: 'USB DAC and headphone amplifier', inStock: true },
+  { id: 85, name: 'Acoustic Foam Panels', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=300&h=300&fit=crop', category: 'Audio', rating: 4.3, reviews: 1234, description: '12-pack acoustic foam panels for studios', inStock: true },
+  { id: 86, name: 'Audio Interface USB', price: 79.99, originalPrice: 159.99, image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=300&h=300&fit=crop', category: 'Audio', rating: 4.6, reviews: 1567, description: '2-channel USB audio interface', inStock: true },
+  { id: 87, name: 'Lavalier Microphone', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300&h=300&fit=crop', category: 'Audio', rating: 4.4, reviews: 2100, description: 'Clip-on lavalier microphone for recording', inStock: true },
+  { id: 88, name: 'Monitor Speakers Pair', price: 99.99, originalPrice: 199.99, image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=300&h=300&fit=crop', category: 'Audio', rating: 4.5, reviews: 654, description: 'Pair of studio monitor speakers', inStock: true },
+  { id: 89, name: 'Headphone Earpads', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop', category: 'Audio', rating: 4.3, reviews: 987, description: 'Memory foam replacement earpads', inStock: true },
+  { id: 90, name: 'Audio Splitter Cable', price: 7.99, originalPrice: 15.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Audio', rating: 4.5, reviews: 4560, description: '3.5mm audio splitter for headphones', inStock: true },
+
+  // Storage & Memory
+  { id: 91, name: 'MicroSD Card 128GB', price: 16.99, originalPrice: 34.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.7, reviews: 5670, description: 'High-speed 128GB microSD card', inStock: true },
+  { id: 92, name: 'USB Flash Drive 64GB', price: 9.99, originalPrice: 19.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.5, reviews: 3450, description: 'USB 3.0 flash drive 64GB', inStock: true },
+  { id: 93, name: 'External HDD 1TB', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.6, reviews: 2340, description: 'Portable 1TB external hard drive', inStock: true },
+  { id: 94, name: 'SD Card Reader USB-C', price: 12.99, originalPrice: 24.99, image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.4, reviews: 1890, description: 'USB-C SD and microSD card reader', inStock: true },
+  { id: 95, name: 'NVMe SSD 256GB', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.7, reviews: 1234, description: 'Fast NVMe M.2 SSD 256GB', inStock: true },
+  { id: 96, name: 'Memory Card Case', price: 6.99, originalPrice: 13.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.3, reviews: 876, description: 'Protective case for SD and microSD cards', inStock: true },
+  { id: 97, name: 'USB-C Flash Drive 128GB', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.5, reviews: 1567, description: 'Dual USB-C and USB-A flash drive', inStock: true },
+  { id: 98, name: 'HDD Enclosure USB-C', price: 16.99, originalPrice: 32.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.4, reviews: 987, description: 'USB-C enclosure for 2.5 inch drives', inStock: true },
+  { id: 99, name: 'MicroSD Card 256GB', price: 27.99, originalPrice: 54.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.6, reviews: 2100, description: 'High-speed 256GB microSD card', inStock: true },
+  { id: 100, name: 'Portable SSD 1TB', price: 89.99, originalPrice: 179.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.8, reviews: 3450, description: 'Ultra-fast portable SSD 1TB', inStock: true },
+
+  // Men's T-Shirts
+  { id: 201, name: 'Classic Cotton Crew Neck T-Shirt', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.5, reviews: 3420, description: 'Soft 100% cotton crew neck t-shirt', inStock: true },
+  { id: 202, name: 'V-Neck Essential Tee', price: 16.99, originalPrice: 32.99, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.4, reviews: 2890, description: 'Comfortable V-neck t-shirt for everyday wear', inStock: true },
+  { id: 203, name: 'Graphic Print T-Shirt', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.3, reviews: 1567, description: 'Trendy graphic print cotton t-shirt', inStock: true },
+  { id: 204, name: 'Henley Long Sleeve Shirt', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1618517351616-38fb9c5210c6?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.6, reviews: 2100, description: 'Classic henley with button placket', inStock: true },
+  { id: 205, name: 'Polo Shirt Classic Fit', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1625910513413-5fc42b87a3b1?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.7, reviews: 4560, description: 'Timeless polo shirt in premium pique cotton', inStock: true },
+  { id: 206, name: 'Striped Cotton T-Shirt', price: 17.99, originalPrice: 34.99, image: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.4, reviews: 1890, description: 'Nautical-inspired striped cotton tee', inStock: true },
+  { id: 207, name: 'Pocket Tee Relaxed Fit', price: 15.99, originalPrice: 31.99, image: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.3, reviews: 2340, description: 'Relaxed fit t-shirt with chest pocket', inStock: true },
+  { id: 208, name: 'Athletic Performance Tee', price: 22.99, originalPrice: 44.99, image: 'https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.5, reviews: 3210, description: 'Moisture-wicking athletic t-shirt', inStock: true },
+  { id: 209, name: 'Raglan Baseball T-Shirt', price: 18.99, originalPrice: 37.99, image: 'https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.4, reviews: 1234, description: 'Classic raglan sleeve baseball tee', inStock: true },
+  { id: 210, name: 'Slim Fit Essential Tee', price: 16.99, originalPrice: 33.99, image: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.5, reviews: 2670, description: 'Modern slim fit cotton t-shirt', inStock: true },
+
+  // Men's Shirts
+  { id: 211, name: 'Oxford Button-Down Shirt', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.7, reviews: 3890, description: 'Classic oxford cloth button-down shirt', inStock: true },
+  { id: 212, name: 'Flannel Plaid Shirt', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1608234807905-4466023792f5?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.6, reviews: 2560, description: 'Warm brushed flannel plaid shirt', inStock: true },
+  { id: 213, name: 'Denim Shirt Western Style', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.5, reviews: 1780, description: 'Classic western-style denim shirt', inStock: true },
+  { id: 214, name: 'Linen Casual Shirt', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.4, reviews: 1450, description: 'Breathable linen shirt for summer', inStock: true },
+  { id: 215, name: 'Dress Shirt Slim Fit', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.8, reviews: 4230, description: 'Wrinkle-resistant slim fit dress shirt', inStock: true },
+  { id: 216, name: 'Chambray Work Shirt', price: 32.99, originalPrice: 64.99, image: 'https://images.unsplash.com/photo-1598522325074-042db73aa4e6?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.5, reviews: 1890, description: 'Durable chambray work shirt', inStock: true },
+  { id: 217, name: 'Short Sleeve Camp Shirt', price: 27.99, originalPrice: 54.99, image: 'https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.3, reviews: 987, description: 'Retro-style camp collar shirt', inStock: true },
+  { id: 218, name: 'Gingham Check Shirt', price: 36.99, originalPrice: 73.99, image: 'https://images.unsplash.com/photo-1563630423918-b58f07336ac9?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.6, reviews: 2100, description: 'Classic gingham pattern shirt', inStock: true },
+  { id: 219, name: 'Stretch Poplin Shirt', price: 38.99, originalPrice: 77.99, image: 'https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.5, reviews: 1670, description: 'Comfortable stretch poplin dress shirt', inStock: true },
+  { id: 220, name: 'Mandarin Collar Shirt', price: 42.99, originalPrice: 85.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.4, reviews: 876, description: 'Modern mandarin collar linen shirt', inStock: true },
+
+  // Men's Pants & Jeans
+  { id: 221, name: 'Slim Fit Jeans Dark Wash', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.6, reviews: 5670, description: 'Classic slim fit dark wash jeans', inStock: true },
+  { id: 222, name: 'Straight Leg Jeans', price: 37.99, originalPrice: 74.99, image: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.5, reviews: 4320, description: 'Timeless straight leg denim jeans', inStock: true },
+  { id: 223, name: 'Chino Pants Classic', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.7, reviews: 3890, description: 'Versatile cotton chino pants', inStock: true },
+  { id: 224, name: 'Cargo Pants Utility', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1517445312882-bc9910d016b7?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.4, reviews: 2100, description: 'Functional cargo pants with multiple pockets', inStock: true },
+  { id: 225, name: 'Jogger Pants Tapered', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.5, reviews: 3450, description: 'Comfortable tapered jogger pants', inStock: true },
+  { id: 226, name: 'Dress Pants Pleated', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.6, reviews: 1890, description: 'Professional pleated dress pants', inStock: true },
+  { id: 227, name: 'Corduroy Pants Relaxed', price: 42.99, originalPrice: 84.99, image: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.3, reviews: 1234, description: 'Soft corduroy pants for fall', inStock: true },
+  { id: 228, name: 'Athletic Track Pants', price: 32.99, originalPrice: 64.99, image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.5, reviews: 2780, description: 'Sporty track pants with side stripes', inStock: true },
+  { id: 229, name: 'Relaxed Fit Jeans Light', price: 36.99, originalPrice: 73.99, image: 'https://images.unsplash.com/photo-1555689502-c4b22d76c56f?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.4, reviews: 2340, description: 'Comfortable relaxed fit light wash jeans', inStock: true },
+  { id: 230, name: 'Stretch Tech Pants', price: 54.99, originalPrice: 109.99, image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.7, reviews: 1567, description: 'Performance stretch tech pants', inStock: true },
+
+  // Men's Outerwear
+  { id: 231, name: 'Bomber Jacket Classic', price: 59.99, originalPrice: 119.99, image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.6, reviews: 3210, description: 'Classic nylon bomber jacket', inStock: true },
+  { id: 232, name: 'Denim Trucker Jacket', price: 54.99, originalPrice: 109.99, image: 'https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.7, reviews: 2890, description: 'Iconic denim trucker jacket', inStock: true },
+  { id: 233, name: 'Puffer Jacket Lightweight', price: 69.99, originalPrice: 139.99, image: 'https://images.unsplash.com/photo-1544923246-77307dd628b5?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.5, reviews: 4560, description: 'Warm lightweight puffer jacket', inStock: true },
+  { id: 234, name: 'Fleece Zip-Up Jacket', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.6, reviews: 3780, description: 'Cozy full-zip fleece jacket', inStock: true },
+  { id: 235, name: 'Leather Moto Jacket', price: 149.99, originalPrice: 299.99, image: 'https://images.unsplash.com/photo-1520975954732-35dd22299614?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.8, reviews: 1890, description: 'Classic leather motorcycle jacket', inStock: true },
+  { id: 236, name: 'Windbreaker Hooded', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1545594861-3bef43ff2fc8?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.4, reviews: 2340, description: 'Lightweight hooded windbreaker', inStock: true },
+  { id: 237, name: 'Quilted Vest', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1606115757624-6b9bfe9fa5e4?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.5, reviews: 1567, description: 'Warm quilted vest for layering', inStock: true },
+  { id: 238, name: 'Raincoat Waterproof', price: 79.99, originalPrice: 159.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.6, reviews: 2100, description: 'Waterproof hooded raincoat', inStock: true },
+  { id: 239, name: 'Peacoat Wool Blend', price: 129.99, originalPrice: 259.99, image: 'https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.7, reviews: 1234, description: 'Classic wool blend peacoat', inStock: true },
+  { id: 240, name: 'Parka Winter Insulated', price: 159.99, originalPrice: 319.99, image: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=300&h=300&fit=crop', category: "Men's Clothing", rating: 4.8, reviews: 3450, description: 'Heavy-duty insulated winter parka', inStock: true },
+
+  // Women's Tops
+  { id: 241, name: 'Flowy Blouse Chiffon', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 4230, description: 'Elegant flowy chiffon blouse', inStock: true },
+  { id: 242, name: 'Fitted Crew Neck Tee', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 5670, description: 'Soft fitted crew neck t-shirt', inStock: true },
+  { id: 243, name: 'Wrap Top V-Neck', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1594938328870-9623159c8c99?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.7, reviews: 2890, description: 'Flattering wrap-style v-neck top', inStock: true },
+  { id: 244, name: 'Peplum Blouse', price: 32.99, originalPrice: 64.99, image: 'https://images.unsplash.com/photo-1551803091-e20673f15770?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.4, reviews: 1890, description: 'Feminine peplum hem blouse', inStock: true },
+  { id: 245, name: 'Off-Shoulder Top', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1562137369-1a1a0bc66744?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 2340, description: 'Trendy off-shoulder summer top', inStock: true },
+  { id: 246, name: 'Button-Front Blouse', price: 36.99, originalPrice: 73.99, image: 'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 1567, description: 'Classic button-front work blouse', inStock: true },
+  { id: 247, name: 'Cropped Tank Top', price: 16.99, originalPrice: 33.99, image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.3, reviews: 3210, description: 'Trendy cropped tank top', inStock: true },
+  { id: 248, name: 'Turtleneck Ribbed Top', price: 27.99, originalPrice: 55.99, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 1890, description: 'Cozy ribbed turtleneck top', inStock: true },
+  { id: 249, name: 'Lace Trim Camisole', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.4, reviews: 2670, description: 'Delicate lace trim camisole', inStock: true },
+  { id: 250, name: 'Oversized Graphic Tee', price: 22.99, originalPrice: 44.99, image: 'https://images.unsplash.com/photo-1503342394128-c104d54dba01?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 4560, description: 'Relaxed oversized graphic t-shirt', inStock: true },
+
+  // Women's Dresses
+  { id: 251, name: 'Midi Wrap Dress', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.7, reviews: 3890, description: 'Elegant midi wrap dress', inStock: true },
+  { id: 252, name: 'Maxi Sundress Floral', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 4230, description: 'Flowy floral maxi sundress', inStock: true },
+  { id: 253, name: 'Little Black Dress', price: 54.99, originalPrice: 109.99, image: 'https://images.unsplash.com/photo-1550639525-c97d455acf70?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.8, reviews: 5670, description: 'Classic little black dress', inStock: true },
+  { id: 254, name: 'Shirt Dress Belted', price: 42.99, originalPrice: 85.99, image: 'https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 2100, description: 'Versatile belted shirt dress', inStock: true },
+  { id: 255, name: 'Bodycon Mini Dress', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.4, reviews: 3210, description: 'Fitted bodycon mini dress', inStock: true },
+  { id: 256, name: 'A-Line Skater Dress', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 2780, description: 'Flattering A-line skater dress', inStock: true },
+  { id: 257, name: 'Slip Dress Satin', price: 47.99, originalPrice: 95.99, image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 1890, description: 'Elegant satin slip dress', inStock: true },
+  { id: 258, name: 'Sweater Dress Knit', price: 52.99, originalPrice: 105.99, image: 'https://images.unsplash.com/photo-1580651214613-f4692d6d138f?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 1567, description: 'Cozy knit sweater dress', inStock: true },
+  { id: 259, name: 'Cocktail Dress Sequin', price: 79.99, originalPrice: 159.99, image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.7, reviews: 1234, description: 'Glamorous sequin cocktail dress', inStock: true },
+  { id: 260, name: 'Summer Smocked Dress', price: 36.99, originalPrice: 73.99, image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 2340, description: 'Casual smocked bodice summer dress', inStock: true },
+
+  // Women's Pants & Jeans
+  { id: 261, name: 'High-Waist Skinny Jeans', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 6780, description: 'Flattering high-waist skinny jeans', inStock: true },
+  { id: 262, name: 'Wide Leg Palazzo Pants', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 3450, description: 'Flowy wide leg palazzo pants', inStock: true },
+  { id: 263, name: 'Mom Jeans Vintage Wash', price: 42.99, originalPrice: 85.99, image: 'https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.4, reviews: 4230, description: 'Trendy vintage wash mom jeans', inStock: true },
+  { id: 264, name: 'Leggings High-Waist', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.7, reviews: 8920, description: 'Comfortable high-waist leggings', inStock: true },
+  { id: 265, name: 'Cropped Ankle Pants', price: 36.99, originalPrice: 73.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 2100, description: 'Chic cropped ankle pants', inStock: true },
+  { id: 266, name: 'Paper Bag Waist Pants', price: 38.99, originalPrice: 77.99, image: 'https://images.unsplash.com/photo-1551854838-212c50b4c184?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.4, reviews: 1890, description: 'Trendy paper bag waist trousers', inStock: true },
+  { id: 267, name: 'Bootcut Jeans Classic', price: 41.99, originalPrice: 83.99, image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 2780, description: 'Classic bootcut stretch jeans', inStock: true },
+  { id: 268, name: 'Culottes Wide Leg', price: 32.99, originalPrice: 65.99, image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.3, reviews: 1234, description: 'Stylish wide leg culottes', inStock: true },
+  { id: 269, name: 'Cargo Joggers Women', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 1567, description: 'Trendy cargo jogger pants', inStock: true },
+  { id: 270, name: 'Straight Leg Trousers', price: 46.99, originalPrice: 93.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 2340, description: 'Professional straight leg trousers', inStock: true },
+
+  // Women's Outerwear
+  { id: 271, name: 'Cropped Denim Jacket', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.7, reviews: 4560, description: 'Classic cropped denim jacket', inStock: true },
+  { id: 272, name: 'Blazer Tailored Fit', price: 69.99, originalPrice: 139.99, image: 'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 2890, description: 'Professional tailored fit blazer', inStock: true },
+  { id: 273, name: 'Teddy Coat Sherpa', price: 79.99, originalPrice: 159.99, image: 'https://images.unsplash.com/photo-1544923246-77307dd628b5?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.8, reviews: 3210, description: 'Cozy sherpa teddy coat', inStock: true },
+  { id: 274, name: 'Trench Coat Classic', price: 89.99, originalPrice: 179.99, image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.7, reviews: 2100, description: 'Timeless classic trench coat', inStock: true },
+  { id: 275, name: 'Puffer Vest Cropped', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1606115757624-6b9bfe9fa5e4?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 1890, description: 'Trendy cropped puffer vest', inStock: true },
+  { id: 276, name: 'Cardigan Long Open', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 3450, description: 'Cozy long open-front cardigan', inStock: true },
+  { id: 277, name: 'Moto Jacket Faux Leather', price: 74.99, originalPrice: 149.99, image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 2670, description: 'Edgy faux leather moto jacket', inStock: true },
+  { id: 278, name: 'Wool Wrap Coat', price: 119.99, originalPrice: 239.99, image: 'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.8, reviews: 1567, description: 'Elegant wool wrap coat', inStock: true },
+  { id: 279, name: 'Rain Jacket Packable', price: 54.99, originalPrice: 109.99, image: 'https://images.unsplash.com/photo-1545594861-3bef43ff2fc8?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.4, reviews: 2100, description: 'Lightweight packable rain jacket', inStock: true },
+  { id: 280, name: 'Bomber Jacket Satin', price: 59.99, originalPrice: 119.99, image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 1234, description: 'Trendy satin bomber jacket', inStock: true },
+
+  // Women's Skirts
+  { id: 281, name: 'Pleated Midi Skirt', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1583496661160-fb5886a0uj5k?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 2890, description: 'Elegant pleated midi skirt', inStock: true },
+  { id: 282, name: 'Denim Mini Skirt', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 3450, description: 'Classic denim mini skirt', inStock: true },
+  { id: 283, name: 'Pencil Skirt High Waist', price: 36.99, originalPrice: 73.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 2100, description: 'Professional high waist pencil skirt', inStock: true },
+  { id: 284, name: 'Maxi Skirt Flowy', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaec?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 1890, description: 'Flowy bohemian maxi skirt', inStock: true },
+  { id: 285, name: 'A-Line Skirt Knee Length', price: 32.99, originalPrice: 65.99, image: 'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.4, reviews: 1567, description: 'Flattering A-line knee length skirt', inStock: true },
+  { id: 286, name: 'Leather Mini Skirt', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1551048632-3fc38b2686c7?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 2340, description: 'Edgy faux leather mini skirt', inStock: true },
+  { id: 287, name: 'Wrap Skirt Midi', price: 37.99, originalPrice: 75.99, image: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaec?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.6, reviews: 1234, description: 'Feminine wrap midi skirt', inStock: true },
+  { id: 288, name: 'Tennis Skirt Pleated', price: 26.99, originalPrice: 53.99, image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.4, reviews: 4560, description: 'Sporty pleated tennis skirt', inStock: true },
+  { id: 289, name: 'Tulle Skirt Layered', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1594938328870-9623159c8c99?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.7, reviews: 987, description: 'Romantic layered tulle skirt', inStock: true },
+  { id: 290, name: 'Slit Maxi Skirt', price: 42.99, originalPrice: 85.99, image: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaec?w=300&h=300&fit=crop', category: "Women's Clothing", rating: 4.5, reviews: 1670, description: 'Elegant maxi skirt with side slit', inStock: true },
+
+  // Kids' Clothing - Boys
+  { id: 291, name: 'Boys Graphic T-Shirt', price: 9.99, originalPrice: 19.99, image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.5, reviews: 3210, description: 'Fun graphic print t-shirt for boys', inStock: true },
+  { id: 292, name: 'Boys Cargo Shorts', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.4, reviews: 2100, description: 'Durable cargo shorts for active boys', inStock: true },
+  { id: 293, name: 'Boys Hoodie Pullover', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.6, reviews: 2890, description: 'Cozy pullover hoodie for boys', inStock: true },
+  { id: 294, name: 'Boys Jeans Slim Fit', price: 22.99, originalPrice: 45.99, image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.5, reviews: 1890, description: 'Comfortable slim fit jeans for boys', inStock: true },
+  { id: 295, name: 'Boys Polo Shirt', price: 16.99, originalPrice: 33.99, image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.4, reviews: 1567, description: 'Classic polo shirt for boys', inStock: true },
+  { id: 296, name: 'Boys Jogger Set', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.6, reviews: 2340, description: 'Matching hoodie and jogger set', inStock: true },
+  { id: 297, name: 'Boys Winter Jacket', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.7, reviews: 1234, description: 'Warm winter puffer jacket for boys', inStock: true },
+  { id: 298, name: 'Boys Button-Down Shirt', price: 17.99, originalPrice: 35.99, image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.3, reviews: 987, description: 'Dressy button-down shirt for boys', inStock: true },
+  { id: 299, name: 'Boys Swim Trunks', price: 12.99, originalPrice: 25.99, image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.5, reviews: 3450, description: 'Quick-dry swim trunks for boys', inStock: true },
+  { id: 300, name: 'Boys Pajama Set', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.6, reviews: 2670, description: 'Soft cotton pajama set for boys', inStock: true },
+
+  // Kids' Clothing - Girls
+  { id: 301, name: 'Girls Floral Dress', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.7, reviews: 4230, description: 'Pretty floral print dress for girls', inStock: true },
+  { id: 302, name: 'Girls Leggings 3-Pack', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.6, reviews: 5670, description: 'Comfortable leggings 3-pack for girls', inStock: true },
+  { id: 303, name: 'Girls Ruffle Top', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.5, reviews: 2100, description: 'Cute ruffle sleeve top for girls', inStock: true },
+  { id: 304, name: 'Girls Denim Overalls', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.5, reviews: 1890, description: 'Adorable denim overalls for girls', inStock: true },
+  { id: 305, name: 'Girls Tutu Skirt', price: 16.99, originalPrice: 33.99, image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.7, reviews: 3210, description: 'Sparkly tulle tutu skirt for girls', inStock: true },
+  { id: 306, name: 'Girls Cardigan Knit', price: 22.99, originalPrice: 45.99, image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.4, reviews: 1567, description: 'Soft knit cardigan for girls', inStock: true },
+  { id: 307, name: 'Girls Winter Coat', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.8, reviews: 2340, description: 'Warm winter coat with hood for girls', inStock: true },
+  { id: 308, name: 'Girls Romper Jumpsuit', price: 21.99, originalPrice: 43.99, image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.5, reviews: 1890, description: 'Cute summer romper for girls', inStock: true },
+  { id: 309, name: 'Girls Swimsuit One-Piece', price: 17.99, originalPrice: 35.99, image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.6, reviews: 2890, description: 'UPF 50+ one-piece swimsuit for girls', inStock: true },
+  { id: 310, name: 'Girls Nightgown Princess', price: 18.99, originalPrice: 37.99, image: 'https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=300&h=300&fit=crop', category: "Kids' Clothing", rating: 4.7, reviews: 2100, description: 'Princess-style nightgown for girls', inStock: true },
+
+  // Activewear - Men
+  { id: 311, name: 'Compression Shorts Men', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.5, reviews: 3450, description: 'High-performance compression shorts', inStock: true },
+  { id: 312, name: 'Running Tank Top Men', price: 17.99, originalPrice: 35.99, image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.4, reviews: 2100, description: 'Lightweight moisture-wicking tank top', inStock: true },
+  { id: 313, name: 'Training Hoodie Men', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.6, reviews: 2890, description: 'Performance training hoodie', inStock: true },
+  { id: 314, name: 'Basketball Shorts Men', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.5, reviews: 4560, description: 'Breathable basketball shorts', inStock: true },
+  { id: 315, name: 'Gym Stringer Tank Men', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.3, reviews: 1890, description: 'Bodybuilding stringer tank top', inStock: true },
+  { id: 316, name: 'Running Tights Men', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.5, reviews: 1567, description: 'Compression running tights', inStock: true },
+  { id: 317, name: 'Track Jacket Zip-Up', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.6, reviews: 2340, description: 'Classic zip-up track jacket', inStock: true },
+  { id: 318, name: 'Workout Shorts 2-in-1', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.7, reviews: 3210, description: 'Lined 2-in-1 workout shorts', inStock: true },
+  { id: 319, name: 'Muscle Fit Gym Tee', price: 22.99, originalPrice: 45.99, image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.4, reviews: 1890, description: 'Fitted muscle fit gym t-shirt', inStock: true },
+  { id: 320, name: 'Sweatpants Jogger Men', price: 32.99, originalPrice: 65.99, image: 'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.5, reviews: 4230, description: 'Comfortable cotton blend sweatpants', inStock: true },
+
+  // Activewear - Women
+  { id: 321, name: 'Sports Bra High Support', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.7, reviews: 6780, description: 'High-impact support sports bra', inStock: true },
+  { id: 322, name: 'Yoga Pants High Waist', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.8, reviews: 8920, description: 'Buttery soft high-waist yoga pants', inStock: true },
+  { id: 323, name: 'Running Shorts Women', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.5, reviews: 3450, description: 'Lightweight running shorts with liner', inStock: true },
+  { id: 324, name: 'Crop Tank Workout', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.6, reviews: 2890, description: 'Cropped workout tank top', inStock: true },
+  { id: 325, name: 'Seamless Leggings', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.7, reviews: 5670, description: 'Seamless sculpting leggings', inStock: true },
+  { id: 326, name: 'Sports Jacket Zip Women', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.5, reviews: 2100, description: 'Lightweight sports zip jacket', inStock: true },
+  { id: 327, name: 'Tennis Dress Athletic', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.6, reviews: 1890, description: 'Athletic tennis dress with shorts', inStock: true },
+  { id: 328, name: 'Workout Leggings Pocket', price: 32.99, originalPrice: 65.99, image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.7, reviews: 4560, description: 'Workout leggings with side pockets', inStock: true },
+  { id: 329, name: 'Racerback Tank Women', price: 17.99, originalPrice: 35.99, image: 'https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.4, reviews: 2340, description: 'Breathable racerback tank top', inStock: true },
+  { id: 330, name: 'Bike Shorts Women', price: 22.99, originalPrice: 45.99, image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=300&h=300&fit=crop', category: 'Activewear', rating: 4.5, reviews: 3210, description: 'High-waist bike shorts', inStock: true },
+
+  // Loungewear & Sleepwear
+  { id: 331, name: 'Pajama Set Satin Women', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1590159763121-7c9fd312190d?w=300&h=300&fit=crop', category: 'Loungewear', rating: 4.6, reviews: 3450, description: 'Luxurious satin pajama set', inStock: true },
+  { id: 332, name: 'Flannel Pajama Pants Men', price: 22.99, originalPrice: 45.99, image: 'https://images.unsplash.com/photo-1590159763121-7c9fd312190d?w=300&h=300&fit=crop', category: 'Loungewear', rating: 4.5, reviews: 2890, description: 'Cozy flannel pajama pants', inStock: true },
+  { id: 333, name: 'Robe Fleece Plush', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1590159763121-7c9fd312190d?w=300&h=300&fit=crop', category: 'Loungewear', rating: 4.7, reviews: 2100, description: 'Ultra-soft plush fleece robe', inStock: true },
+  { id: 334, name: 'Sleep Shirt Oversized', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1590159763121-7c9fd312190d?w=300&h=300&fit=crop', category: 'Loungewear', rating: 4.4, reviews: 1890, description: 'Comfortable oversized sleep shirt', inStock: true },
+  { id: 335, name: 'Lounge Joggers Soft', price: 27.99, originalPrice: 55.99, image: 'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=300&h=300&fit=crop', category: 'Loungewear', rating: 4.6, reviews: 3210, description: 'Super soft lounge joggers', inStock: true },
+  { id: 336, name: 'Camisole Sleep Set', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1590159763121-7c9fd312190d?w=300&h=300&fit=crop', category: 'Loungewear', rating: 4.5, reviews: 1567, description: 'Camisole and shorts sleep set', inStock: true },
+  { id: 337, name: 'Henley Sleep Shirt Men', price: 21.99, originalPrice: 43.99, image: 'https://images.unsplash.com/photo-1590159763121-7c9fd312190d?w=300&h=300&fit=crop', category: 'Loungewear', rating: 4.4, reviews: 1234, description: 'Long sleeve henley sleep shirt', inStock: true },
+  { id: 338, name: 'Nightgown Long Cotton', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1590159763121-7c9fd312190d?w=300&h=300&fit=crop', category: 'Loungewear', rating: 4.6, reviews: 2340, description: 'Breathable cotton nightgown', inStock: true },
+  { id: 339, name: 'Lounge Set Matching', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1590159763121-7c9fd312190d?w=300&h=300&fit=crop', category: 'Loungewear', rating: 4.7, reviews: 2890, description: 'Matching top and bottom lounge set', inStock: true },
+  { id: 340, name: 'Slippers Memory Foam', price: 17.99, originalPrice: 35.99, image: 'https://images.unsplash.com/photo-1603487742131-4160ec99306e?w=300&h=300&fit=crop', category: 'Loungewear', rating: 4.5, reviews: 4560, description: 'Cozy memory foam slippers', inStock: true },
+
+  // Swimwear
+  { id: 341, name: 'Bikini Set Two-Piece', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1570976447640-ac859083963f?w=300&h=300&fit=crop', category: 'Swimwear', rating: 4.5, reviews: 4230, description: 'Stylish two-piece bikini set', inStock: true },
+  { id: 342, name: 'One-Piece Swimsuit Tummy Control', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1570976447640-ac859083963f?w=300&h=300&fit=crop', category: 'Swimwear', rating: 4.7, reviews: 3890, description: 'Slimming tummy control swimsuit', inStock: true },
+  { id: 343, name: 'Board Shorts Men', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&h=300&fit=crop', category: 'Swimwear', rating: 4.5, reviews: 2890, description: 'Quick-dry board shorts', inStock: true },
+  { id: 344, name: 'Swim Trunks Classic Men', price: 22.99, originalPrice: 45.99, image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&h=300&fit=crop', category: 'Swimwear', rating: 4.4, reviews: 3450, description: 'Classic fit swim trunks', inStock: true },
+  { id: 345, name: 'High-Waist Bikini Bottom', price: 17.99, originalPrice: 35.99, image: 'https://images.unsplash.com/photo-1570976447640-ac859083963f?w=300&h=300&fit=crop', category: 'Swimwear', rating: 4.6, reviews: 2100, description: 'Retro high-waist bikini bottom', inStock: true },
+  { id: 346, name: 'Tankini Set Women', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1570976447640-ac859083963f?w=300&h=300&fit=crop', category: 'Swimwear', rating: 4.5, reviews: 1890, description: 'Flattering tankini swim set', inStock: true },
+  { id: 347, name: 'Rash Guard Long Sleeve', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1570976447640-ac859083963f?w=300&h=300&fit=crop', category: 'Swimwear', rating: 4.6, reviews: 1567, description: 'UPF 50+ long sleeve rash guard', inStock: true },
+  { id: 348, name: 'Swim Cover-Up Dress', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1570976447640-ac859083963f?w=300&h=300&fit=crop', category: 'Swimwear', rating: 4.4, reviews: 2340, description: 'Lightweight beach cover-up dress', inStock: true },
+  { id: 349, name: 'Swim Briefs Men', price: 16.99, originalPrice: 33.99, image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&h=300&fit=crop', category: 'Swimwear', rating: 4.3, reviews: 1234, description: 'Athletic swim briefs', inStock: true },
+  { id: 350, name: 'Sarong Beach Wrap', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1570976447640-ac859083963f?w=300&h=300&fit=crop', category: 'Swimwear', rating: 4.5, reviews: 3210, description: 'Versatile beach sarong wrap', inStock: true },
+
+  // Formal Wear
+  { id: 351, name: 'Suit Jacket Slim Fit', price: 129.99, originalPrice: 259.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: 'Formal Wear', rating: 4.7, reviews: 2340, description: 'Modern slim fit suit jacket', inStock: true },
+  { id: 352, name: 'Dress Pants Tailored', price: 54.99, originalPrice: 109.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: 'Formal Wear', rating: 4.6, reviews: 1890, description: 'Tailored dress pants', inStock: true },
+  { id: 353, name: 'Evening Gown Long', price: 149.99, originalPrice: 299.99, image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=300&h=300&fit=crop', category: 'Formal Wear', rating: 4.8, reviews: 987, description: 'Elegant floor-length evening gown', inStock: true },
+  { id: 354, name: 'Tuxedo Shirt White', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?w=300&h=300&fit=crop', category: 'Formal Wear', rating: 4.5, reviews: 1234, description: 'Classic white tuxedo shirt', inStock: true },
+  { id: 355, name: 'Cocktail Dress Midi', price: 79.99, originalPrice: 159.99, image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=300&h=300&fit=crop', category: 'Formal Wear', rating: 4.6, reviews: 2100, description: 'Sophisticated midi cocktail dress', inStock: true },
+  { id: 356, name: 'Vest Formal Men', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: 'Formal Wear', rating: 4.4, reviews: 876, description: 'Classic formal vest', inStock: true },
+  { id: 357, name: 'Bow Tie Silk', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: 'Formal Wear', rating: 4.5, reviews: 1567, description: 'Pre-tied silk bow tie', inStock: true },
+  { id: 358, name: 'Formal Jumpsuit Women', price: 89.99, originalPrice: 179.99, image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=300&h=300&fit=crop', category: 'Formal Wear', rating: 4.6, reviews: 1234, description: 'Elegant wide-leg formal jumpsuit', inStock: true },
+  { id: 359, name: 'Cummerbund Set', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: 'Formal Wear', rating: 4.3, reviews: 654, description: 'Cummerbund and bow tie set', inStock: true },
+  { id: 360, name: 'Prom Dress Ball Gown', price: 119.99, originalPrice: 239.99, image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=300&h=300&fit=crop', category: 'Formal Wear', rating: 4.8, reviews: 1890, description: 'Beautiful ball gown prom dress', inStock: true },
+
+  // Underwear & Basics
+  { id: 361, name: 'Boxer Briefs 5-Pack Men', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=300&h=300&fit=crop', category: 'Underwear & Basics', rating: 4.6, reviews: 6780, description: 'Comfortable boxer briefs 5-pack', inStock: true },
+  { id: 362, name: 'Bralette Wireless Women', price: 16.99, originalPrice: 33.99, image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=300&fit=crop', category: 'Underwear & Basics', rating: 4.5, reviews: 4560, description: 'Comfortable wireless bralette', inStock: true },
+  { id: 363, name: 'Briefs Cotton 6-Pack Women', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=300&fit=crop', category: 'Underwear & Basics', rating: 4.4, reviews: 5670, description: 'Soft cotton briefs 6-pack', inStock: true },
+  { id: 364, name: 'Undershirt V-Neck 3-Pack', price: 22.99, originalPrice: 45.99, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop', category: 'Underwear & Basics', rating: 4.5, reviews: 3210, description: 'Tagless v-neck undershirts 3-pack', inStock: true },
+  { id: 365, name: 'T-Shirt Bra Smooth', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=300&fit=crop', category: 'Underwear & Basics', rating: 4.6, reviews: 4890, description: 'Seamless smooth t-shirt bra', inStock: true },
+  { id: 366, name: 'Ankle Socks 12-Pack', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=300&h=300&fit=crop', category: 'Underwear & Basics', rating: 4.4, reviews: 7890, description: 'Cotton ankle socks 12-pack', inStock: true },
+  { id: 367, name: 'Thong Seamless 5-Pack', price: 17.99, originalPrice: 35.99, image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=300&fit=crop', category: 'Underwear & Basics', rating: 4.3, reviews: 3450, description: 'No-show seamless thongs 5-pack', inStock: true },
+  { id: 368, name: 'Crew Socks Athletic 6-Pack', price: 16.99, originalPrice: 33.99, image: 'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=300&h=300&fit=crop', category: 'Underwear & Basics', rating: 4.5, reviews: 4230, description: 'Cushioned athletic crew socks', inStock: true },
+  { id: 369, name: 'Tank Top Undershirt 4-Pack', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop', category: 'Underwear & Basics', rating: 4.4, reviews: 2100, description: 'Ribbed tank undershirts 4-pack', inStock: true },
+  { id: 370, name: 'Shapewear Shorts High Waist', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=300&fit=crop', category: 'Underwear & Basics', rating: 4.6, reviews: 2890, description: 'Smoothing high-waist shapewear shorts', inStock: true },
+
+  // Accessories - Hats & Caps
+  { id: 371, name: 'Baseball Cap Classic', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.5, reviews: 4560, description: 'Classic adjustable baseball cap', inStock: true },
+  { id: 372, name: 'Beanie Knit Winter', price: 12.99, originalPrice: 25.99, image: 'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.6, reviews: 3890, description: 'Warm knit winter beanie', inStock: true },
+  { id: 373, name: 'Bucket Hat Trendy', price: 16.99, originalPrice: 33.99, image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.4, reviews: 2340, description: 'Trendy cotton bucket hat', inStock: true },
+  { id: 374, name: 'Sun Hat Wide Brim', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1521369909029-2afed882baee?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.5, reviews: 1890, description: 'UPF 50+ wide brim sun hat', inStock: true },
+  { id: 375, name: 'Fedora Hat Wool', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.3, reviews: 1234, description: 'Classic wool fedora hat', inStock: true },
+
+  // Accessories - Scarves & Belts
+  { id: 376, name: 'Scarf Cashmere Blend', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.7, reviews: 2100, description: 'Luxurious cashmere blend scarf', inStock: true },
+  { id: 377, name: 'Belt Leather Classic', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.6, reviews: 3890, description: 'Classic genuine leather belt', inStock: true },
+  { id: 378, name: 'Infinity Scarf Knit', price: 17.99, originalPrice: 35.99, image: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.5, reviews: 1567, description: 'Cozy knit infinity scarf', inStock: true },
+  { id: 379, name: 'Canvas Belt Woven', price: 14.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.4, reviews: 2340, description: 'Casual woven canvas belt', inStock: true },
+  { id: 380, name: 'Silk Scarf Square', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.6, reviews: 987, description: 'Elegant square silk scarf', inStock: true },
+
+  // Accessories - Gloves & More
+  { id: 381, name: 'Gloves Leather Touchscreen', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1578632292335-df3abbb0d586?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.5, reviews: 1890, description: 'Leather gloves with touchscreen tips', inStock: true },
+  { id: 382, name: 'Mittens Fleece Lined', price: 16.99, originalPrice: 33.99, image: 'https://images.unsplash.com/photo-1578632292335-df3abbb0d586?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.6, reviews: 1234, description: 'Warm fleece-lined mittens', inStock: true },
+  { id: 383, name: 'Suspenders Classic Y-Back', price: 19.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.4, reviews: 876, description: 'Classic Y-back suspenders', inStock: true },
+  { id: 384, name: 'Tie Necktie Silk', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.6, reviews: 2100, description: 'Premium silk necktie', inStock: true },
+  { id: 385, name: 'Pocket Square Set 4-Pack', price: 17.99, originalPrice: 35.99, image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=300&fit=crop', category: 'Clothing Accessories', rating: 4.3, reviews: 654, description: 'Assorted pocket squares 4-pack', inStock: true },
+
+  // Plus Size Women
+  { id: 386, name: 'Plus Size Wrap Dress', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=300&fit=crop', category: 'Plus Size', rating: 4.6, reviews: 2340, description: 'Flattering wrap dress plus size', inStock: true },
+  { id: 387, name: 'Plus Size Jeans Bootcut', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=300&h=300&fit=crop', category: 'Plus Size', rating: 4.5, reviews: 3210, description: 'Comfortable bootcut jeans plus size', inStock: true },
+  { id: 388, name: 'Plus Size Tunic Top', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=300&h=300&fit=crop', category: 'Plus Size', rating: 4.5, reviews: 1890, description: 'Flowy tunic top plus size', inStock: true },
+  { id: 389, name: 'Plus Size Maxi Dress', price: 54.99, originalPrice: 109.99, image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=300&h=300&fit=crop', category: 'Plus Size', rating: 4.7, reviews: 2100, description: 'Beautiful maxi dress plus size', inStock: true },
+  { id: 390, name: 'Plus Size Blazer', price: 69.99, originalPrice: 139.99, image: 'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=300&h=300&fit=crop', category: 'Plus Size', rating: 4.4, reviews: 1234, description: 'Professional blazer plus size', inStock: true },
+  { id: 391, name: 'Plus Size Leggings', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=300&h=300&fit=crop', category: 'Plus Size', rating: 4.6, reviews: 4560, description: 'Comfortable high-waist leggings plus size', inStock: true },
+  { id: 392, name: 'Plus Size Cardigan Long', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=300&h=300&fit=crop', category: 'Plus Size', rating: 4.5, reviews: 1567, description: 'Long cozy cardigan plus size', inStock: true },
+  { id: 393, name: 'Plus Size Swimsuit', price: 49.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1570976447640-ac859083963f?w=300&h=300&fit=crop', category: 'Plus Size', rating: 4.6, reviews: 2890, description: 'Supportive one-piece swimsuit plus size', inStock: true },
+  { id: 394, name: 'Plus Size Palazzo Pants', price: 34.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=300&h=300&fit=crop', category: 'Plus Size', rating: 4.4, reviews: 1890, description: 'Flowy palazzo pants plus size', inStock: true },
+  { id: 395, name: 'Plus Size Puffer Jacket', price: 79.99, originalPrice: 159.99, image: 'https://images.unsplash.com/photo-1544923246-77307dd628b5?w=300&h=300&fit=crop', category: 'Plus Size', rating: 4.7, reviews: 987, description: 'Warm puffer jacket plus size', inStock: true },
+
+  // Maternity
+  { id: 396, name: 'Maternity Jeans Skinny', price: 44.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=300&h=300&fit=crop', category: 'Maternity', rating: 4.6, reviews: 2340, description: 'Comfortable over-belly maternity jeans', inStock: true },
+  { id: 397, name: 'Maternity Dress Wrap', price: 39.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=300&fit=crop', category: 'Maternity', rating: 4.7, reviews: 1890, description: 'Flattering wrap maternity dress', inStock: true },
+  { id: 398, name: 'Maternity Top Ruched', price: 24.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=300&h=300&fit=crop', category: 'Maternity', rating: 4.5, reviews: 3210, description: 'Side-ruched maternity top', inStock: true },
+  { id: 399, name: 'Maternity Leggings Over Belly', price: 29.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=300&h=300&fit=crop', category: 'Maternity', rating: 4.6, reviews: 4560, description: 'Supportive over-belly maternity leggings', inStock: true },
+  { id: 400, name: 'Maternity Nursing Bra', price: 22.99, originalPrice: 45.99, image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=300&fit=crop', category: 'Maternity', rating: 4.5, reviews: 2100, description: 'Comfortable wireless nursing bra', inStock: true }
+];
+
+// Special Deals - Limited time offers with extra discounts
+const specialDeals = [
+  // Flash Sale - Electronics
+  { id: 101, name: 'Noise Cancelling Headphones Pro', price: 39.99, originalPrice: 129.99, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.8, reviews: 8920, description: 'Premium ANC headphones - 70% OFF Flash Sale!', inStock: true, dealType: 'Flash Sale', dealEnds: '2026-02-05' },
+  { id: 102, name: 'Smart Home Hub', price: 29.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.6, reviews: 3450, description: 'Control all your smart devices - Limited Deal!', inStock: true, dealType: 'Flash Sale', dealEnds: '2026-02-03' },
+  { id: 103, name: 'Wireless Charging Station 3-in-1', price: 24.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1622445275576-721325763afe?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.7, reviews: 2100, description: 'Charge phone, watch, and earbuds simultaneously', inStock: true, dealType: 'Flash Sale', dealEnds: '2026-02-02' },
+  { id: 104, name: 'Portable Monitor 15.6"', price: 99.99, originalPrice: 249.99, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.5, reviews: 1876, description: 'USB-C portable monitor for productivity', inStock: true, dealType: 'Flash Sale', dealEnds: '2026-02-04' },
+  { id: 105, name: 'Smart Doorbell Camera', price: 49.99, originalPrice: 149.99, image: 'https://images.unsplash.com/photo-1558002038-1055907df827?w=300&h=300&fit=crop', category: 'Electronics', rating: 4.6, reviews: 5670, description: 'HD video doorbell with two-way audio', inStock: true, dealType: 'Flash Sale', dealEnds: '2026-02-06' },
+
+  // Clearance - Computer Accessories
+  { id: 106, name: 'Ergonomic Keyboard Split', price: 34.99, originalPrice: 119.99, image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.4, reviews: 987, description: 'Split ergonomic keyboard - Clearance!', inStock: true, dealType: 'Clearance', dealEnds: '2026-02-15' },
+  { id: 107, name: 'Vertical Mouse Wireless', price: 14.99, originalPrice: 49.99, image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.5, reviews: 2340, description: 'Ergonomic vertical mouse for wrist health', inStock: true, dealType: 'Clearance', dealEnds: '2026-02-15' },
+  { id: 108, name: 'Laptop Cooling Pad RGB', price: 19.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.3, reviews: 1567, description: 'RGB cooling pad with 6 fans', inStock: true, dealType: 'Clearance', dealEnds: '2026-02-15' },
+  { id: 109, name: 'Wrist Rest Memory Foam', price: 9.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.6, reviews: 3210, description: 'Premium memory foam keyboard wrist rest', inStock: true, dealType: 'Clearance', dealEnds: '2026-02-15' },
+  { id: 110, name: 'Dual Monitor Arm', price: 44.99, originalPrice: 129.99, image: 'https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=300&h=300&fit=crop', category: 'Computer Accessories', rating: 4.7, reviews: 1890, description: 'Heavy-duty dual monitor mount - 65% OFF!', inStock: true, dealType: 'Clearance', dealEnds: '2026-02-15' },
+
+  // Deal of the Day - Cables & Adapters
+  { id: 111, name: 'Cable Bundle Pack 10pc', price: 19.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.8, reviews: 4560, description: 'Complete cable bundle - Deal of the Day!', inStock: true, dealType: 'Deal of the Day', dealEnds: '2026-01-30' },
+  { id: 112, name: 'Universal Travel Adapter', price: 12.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.5, reviews: 2100, description: 'Works in 150+ countries with USB ports', inStock: true, dealType: 'Deal of the Day', dealEnds: '2026-01-30' },
+  { id: 113, name: 'Braided Cable Set 3-Pack', price: 8.99, originalPrice: 29.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.6, reviews: 5670, description: 'Durable braided USB-C cables 1m/2m/3m', inStock: true, dealType: 'Deal of the Day', dealEnds: '2026-01-30' },
+  { id: 114, name: 'GaN Charger 140W', price: 54.99, originalPrice: 149.99, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.7, reviews: 1234, description: 'Compact 140W GaN charger for laptops', inStock: true, dealType: 'Deal of the Day', dealEnds: '2026-01-30' },
+  { id: 115, name: 'Thunderbolt 4 Cable 2m', price: 29.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=300&h=300&fit=crop', category: 'Cables & Adapters', rating: 4.8, reviews: 876, description: '40Gbps Thunderbolt 4 cable', inStock: true, dealType: 'Deal of the Day', dealEnds: '2026-01-30' },
+
+  // Weekend Special - Phone Accessories
+  { id: 116, name: 'Phone Case Bundle 3-Pack', price: 9.99, originalPrice: 34.99, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.4, reviews: 3450, description: 'Clear, matte, and rugged cases bundle', inStock: true, dealType: 'Weekend Special', dealEnds: '2026-02-02' },
+  { id: 117, name: 'Car Charger Dual Port 45W', price: 11.99, originalPrice: 34.99, image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.5, reviews: 2100, description: 'Fast car charger with PD and QC', inStock: true, dealType: 'Weekend Special', dealEnds: '2026-02-02' },
+  { id: 118, name: 'PopSocket Premium Pack', price: 7.99, originalPrice: 24.99, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.3, reviews: 6780, description: '3-pack premium phone grips', inStock: true, dealType: 'Weekend Special', dealEnds: '2026-02-02' },
+  { id: 119, name: 'Gimbal Stabilizer Phone', price: 49.99, originalPrice: 149.99, image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.6, reviews: 1567, description: '3-axis gimbal for smooth video recording', inStock: true, dealType: 'Weekend Special', dealEnds: '2026-02-02' },
+  { id: 120, name: 'Privacy Screen Protector', price: 8.99, originalPrice: 24.99, image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=300&h=300&fit=crop', category: 'Phone Accessories', rating: 4.4, reviews: 2340, description: 'Anti-spy tempered glass protector', inStock: true, dealType: 'Weekend Special', dealEnds: '2026-02-02' },
+
+  // Bundle Deals - Tablet Accessories
+  { id: 121, name: 'iPad Accessory Bundle', price: 39.99, originalPrice: 119.99, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.7, reviews: 1890, description: 'Case, stylus, and screen protector bundle', inStock: true, dealType: 'Bundle Deal', dealEnds: '2026-02-10' },
+  { id: 122, name: 'Artist Drawing Kit Pro', price: 59.99, originalPrice: 179.99, image: 'https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.8, reviews: 987, description: 'Stylus, glove, stand, and tips bundle', inStock: true, dealType: 'Bundle Deal', dealEnds: '2026-02-10' },
+  { id: 123, name: 'Tablet Travel Set', price: 34.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.5, reviews: 1234, description: 'Sleeve, stand, and charger travel kit', inStock: true, dealType: 'Bundle Deal', dealEnds: '2026-02-10' },
+  { id: 124, name: 'Kids Tablet Case Bundle', price: 24.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.4, reviews: 2100, description: 'Shockproof case with stylus and headphones', inStock: true, dealType: 'Bundle Deal', dealEnds: '2026-02-10' },
+  { id: 125, name: 'Productivity Tablet Kit', price: 79.99, originalPrice: 229.99, image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&h=300&fit=crop', category: 'Tablet Accessories', rating: 4.6, reviews: 654, description: 'Keyboard, mouse, and hub combo', inStock: true, dealType: 'Bundle Deal', dealEnds: '2026-02-10' },
+
+  // Hot Deals - Lighting
+  { id: 126, name: 'Smart LED Bulbs 4-Pack', price: 19.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.6, reviews: 4560, description: 'WiFi RGBW smart bulbs - Hot Deal!', inStock: true, dealType: 'Hot Deal', dealEnds: '2026-02-07' },
+  { id: 127, name: 'LED Panel Light Key', price: 34.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.7, reviews: 1890, description: 'Professional key light for streaming', inStock: true, dealType: 'Hot Deal', dealEnds: '2026-02-07' },
+  { id: 128, name: 'RGB Corner Lamp', price: 29.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.5, reviews: 2340, description: 'Modern RGB corner floor lamp', inStock: true, dealType: 'Hot Deal', dealEnds: '2026-02-07' },
+  { id: 129, name: 'Neon Sign Custom', price: 24.99, originalPrice: 74.99, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.4, reviews: 1567, description: 'LED neon sign for room decor', inStock: true, dealType: 'Hot Deal', dealEnds: '2026-02-07' },
+  { id: 130, name: 'Portable Light Wand', price: 19.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300&h=300&fit=crop', category: 'Lighting', rating: 4.6, reviews: 987, description: 'RGB light wand for photography', inStock: true, dealType: 'Hot Deal', dealEnds: '2026-02-07' },
+
+  // Mega Sale - Home & Office
+  { id: 131, name: 'Standing Desk Converter', price: 79.99, originalPrice: 249.99, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.7, reviews: 3210, description: 'Adjustable standing desk converter - 68% OFF!', inStock: true, dealType: 'Mega Sale', dealEnds: '2026-02-08' },
+  { id: 132, name: 'Ergonomic Footrest', price: 19.99, originalPrice: 59.99, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.4, reviews: 1890, description: 'Adjustable ergonomic footrest', inStock: true, dealType: 'Mega Sale', dealEnds: '2026-02-08' },
+  { id: 133, name: 'Desk Drawer Organizer Set', price: 14.99, originalPrice: 44.99, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.5, reviews: 2100, description: '8-piece drawer organizer set', inStock: true, dealType: 'Mega Sale', dealEnds: '2026-02-08' },
+  { id: 134, name: 'Webcam Light & Stand Combo', price: 24.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.6, reviews: 1234, description: 'Webcam with built-in ring light', inStock: true, dealType: 'Mega Sale', dealEnds: '2026-02-08' },
+  { id: 135, name: 'Desktop Humidifier Mini', price: 12.99, originalPrice: 39.99, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&h=300&fit=crop', category: 'Home & Office', rating: 4.3, reviews: 2340, description: 'USB mini humidifier for desk', inStock: true, dealType: 'Mega Sale', dealEnds: '2026-02-08' },
+
+  // Lightning Deals - Gaming
+  { id: 136, name: 'Gaming Controller Pro', price: 34.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.7, reviews: 5670, description: 'Pro controller with hall effect sticks', inStock: true, dealType: 'Lightning Deal', dealEnds: '2026-01-30' },
+  { id: 137, name: 'RGB Mousepad XXL Wireless', price: 29.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.5, reviews: 2100, description: 'Wireless charging RGB mousepad', inStock: true, dealType: 'Lightning Deal', dealEnds: '2026-01-30' },
+  { id: 138, name: 'Gaming Glasses Blue Light', price: 14.99, originalPrice: 44.99, image: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.4, reviews: 3450, description: 'Blue light blocking gaming glasses', inStock: true, dealType: 'Lightning Deal', dealEnds: '2026-01-30' },
+  { id: 139, name: 'Controller Charging Dock', price: 19.99, originalPrice: 54.99, image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.6, reviews: 1890, description: 'Dual controller charging dock RGB', inStock: true, dealType: 'Lightning Deal', dealEnds: '2026-01-30' },
+  { id: 140, name: 'Gaming Earbuds Low Latency', price: 29.99, originalPrice: 79.99, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300&h=300&fit=crop', category: 'Gaming', rating: 4.5, reviews: 1567, description: 'True wireless gaming earbuds 40ms latency', inStock: true, dealType: 'Lightning Deal', dealEnds: '2026-01-30' },
+
+  // Super Saver - Audio
+  { id: 141, name: 'Studio Headphones Closed', price: 49.99, originalPrice: 149.99, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop', category: 'Audio', rating: 4.8, reviews: 2340, description: 'Professional closed-back studio headphones', inStock: true, dealType: 'Super Saver', dealEnds: '2026-02-12' },
+  { id: 142, name: 'USB Microphone RGB', price: 29.99, originalPrice: 89.99, image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300&h=300&fit=crop', category: 'Audio', rating: 4.6, reviews: 1890, description: 'USB condenser mic with RGB lighting', inStock: true, dealType: 'Super Saver', dealEnds: '2026-02-12' },
+  { id: 143, name: 'Soundbar Mini USB', price: 24.99, originalPrice: 69.99, image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=300&h=300&fit=crop', category: 'Audio', rating: 4.4, reviews: 1234, description: 'Compact USB soundbar for monitors', inStock: true, dealType: 'Super Saver', dealEnds: '2026-02-12' },
+  { id: 144, name: 'Wireless Mic System', price: 59.99, originalPrice: 179.99, image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=300&h=300&fit=crop', category: 'Audio', rating: 4.7, reviews: 876, description: 'Dual wireless microphone system', inStock: true, dealType: 'Super Saver', dealEnds: '2026-02-12' },
+  { id: 145, name: 'IEM Monitors Pro', price: 39.99, originalPrice: 119.99, image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300&h=300&fit=crop', category: 'Audio', rating: 4.6, reviews: 1567, description: 'Professional in-ear monitors', inStock: true, dealType: 'Super Saver', dealEnds: '2026-02-12' },
+
+  // Best Value - Storage & Memory
+  { id: 146, name: 'MicroSD Card 512GB', price: 39.99, originalPrice: 119.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.8, reviews: 4560, description: 'Ultra high-speed 512GB microSD - Best Value!', inStock: true, dealType: 'Best Value', dealEnds: '2026-02-14' },
+  { id: 147, name: 'Portable SSD 2TB', price: 119.99, originalPrice: 349.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.7, reviews: 2100, description: 'Ultra-fast 2TB portable SSD', inStock: true, dealType: 'Best Value', dealEnds: '2026-02-14' },
+  { id: 148, name: 'NVMe Enclosure USB4', price: 34.99, originalPrice: 99.99, image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.6, reviews: 987, description: 'USB4 NVMe enclosure 40Gbps', inStock: true, dealType: 'Best Value', dealEnds: '2026-02-14' },
+  { id: 149, name: 'USB Hub with Card Reader', price: 22.99, originalPrice: 64.99, image: 'https://images.unsplash.com/photo-1625723044792-44de16ccb4e9?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.5, reviews: 1890, description: '7-port USB hub with SD card reader', inStock: true, dealType: 'Best Value', dealEnds: '2026-02-14' },
+  { id: 150, name: 'Flash Drive Keychain 256GB', price: 19.99, originalPrice: 54.99, image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=300&fit=crop', category: 'Storage & Memory', rating: 4.4, reviews: 3210, description: 'Compact 256GB USB drive keychain', inStock: true, dealType: 'Best Value', dealEnds: '2026-02-14' }
+];
+
+// Clothing categories to exclude from "All Products"
+const clothingCategories = [
+  "Men's Clothing",
+  "Women's Clothing", 
+  "Kids' Clothing",
+  "Activewear",
+  "Loungewear",
+  "Swimwear",
+  "Formal Wear",
+  "Underwear & Basics",
+  "Clothing Accessories",
+  "Plus Size",
+  "Maternity"
 ];
 
 export const productService = {
-  getAllProducts: () => Promise.resolve(mockProducts),
+  getAllProducts: () => {
+    const nonClothingProducts = mockProducts.filter(p => !clothingCategories.includes(p.category));
+    return Promise.resolve(nonClothingProducts);
+  },
+  
+  // Get only clothing products
+  getClothingProducts: () => {
+    const clothingProducts = mockProducts.filter(p => clothingCategories.includes(p.category));
+    return Promise.resolve(clothingProducts);
+  },
   
   getProductById: (id) => {
-    return Promise.resolve(mockProducts.find(p => p.id === id));
+    const allProducts = [...mockProducts, ...specialDeals];
+    return Promise.resolve(allProducts.find(p => p.id === id));
   },
 
   searchProducts: (query) => {
-    const results = mockProducts.filter(p =>
+    const allProducts = [...mockProducts, ...specialDeals];
+    const results = allProducts.filter(p =>
       p.name.toLowerCase().includes(query.toLowerCase()) ||
       p.category.toLowerCase().includes(query.toLowerCase()) ||
       p.description.toLowerCase().includes(query.toLowerCase())
@@ -163,12 +481,40 @@ export const productService = {
   },
 
   getProductsByCategory: (category) => {
-    const results = mockProducts.filter(p => p.category === category);
+    const allProducts = [...mockProducts, ...specialDeals];
+    const results = allProducts.filter(p => p.category === category);
     return Promise.resolve(results);
   },
 
   getCategories: () => {
-    const categories = [...new Set(mockProducts.map(p => p.category))];
+    const allProducts = [...mockProducts, ...specialDeals];
+    const categories = [...new Set(allProducts.map(p => p.category))].filter(c => !clothingCategories.includes(c));
     return Promise.resolve(categories);
+  },
+
+  // Get only clothing categories
+  getClothingCategories: () => {
+    const clothingProducts = mockProducts.filter(p => clothingCategories.includes(p.category));
+    const categories = [...new Set(clothingProducts.map(p => p.category))];
+    return Promise.resolve(categories);
+  },
+
+  // New methods for special deals
+  getSpecialDeals: () => Promise.resolve(specialDeals),
+
+  getDealsByType: (dealType) => {
+    const results = specialDeals.filter(p => p.dealType === dealType);
+    return Promise.resolve(results);
+  },
+
+  getDealTypes: () => {
+    const dealTypes = [...new Set(specialDeals.map(p => p.dealType))];
+    return Promise.resolve(dealTypes);
+  },
+
+  getActiveDeals: () => {
+    const now = new Date();
+    const activeDeals = specialDeals.filter(p => new Date(p.dealEnds) > now);
+    return Promise.resolve(activeDeals);
   }
 };

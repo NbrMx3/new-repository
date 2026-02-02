@@ -31,6 +31,15 @@
   z-index: 1;
 }
 
+.hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
 .hero-banner h1 {
   font-size: 48px;
   margin-bottom: 20px;
@@ -41,6 +50,13 @@
   font-size: 20px;
   margin-bottom: 30px;
   opacity: 0.9;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .cta-button {
@@ -59,6 +75,17 @@
   background-color: var(--secondary-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.cta-button.secondary:hover {
+  background: white;
+  color: var(--primary-color);
 }
 
 /* Promo Section */
@@ -149,6 +176,88 @@
   gap: 20px;
 }
 
+/* Best Sellers Section */
+.bestsellers-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.bestsellers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.bestseller-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.bestseller-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  border-color: var(--primary-color);
+}
+
+.bestseller-card .rank {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  background: linear-gradient(135deg, #ffd700, #ffb700);
+  color: #333;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bestseller-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.bestseller-info h4 {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bestseller-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bestseller-stats .price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.bestseller-stats .sold {
+  font-size: 12px;
+  color: #999;
+}
+
 /* Benefits Section */
 .benefits-section {
   max-width: 1200px;
@@ -190,9 +299,56 @@
   color: #666;
 }
 
+/* Responsive - Large Tablets */
+@media (max-width: 992px) {
+  .hero-banner {
+    padding: 60px 20px;
+  }
+  
+  .hero-banner h1 {
+    font-size: 40px;
+  }
+  
+  .promo-section {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .promo-banner {
+    padding: 30px 15px;
+    min-height: 120px;
+  }
+  
+  .promo-banner h3 {
+    font-size: 20px;
+  }
+  
+  .section-header h2 {
+    font-size: 24px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+  }
+  
+  .bestsellers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .benefits-section {
+    gap: 20px;
+  }
+  
+  .benefit-item {
+    padding: 25px 20px;
+  }
+}
+
+/* Responsive - Tablets */
 @media (max-width: 768px) {
   .hero-banner {
-    padding: 40px 20px;
+    padding: 40px 15px;
   }
 
   .hero-banner h1 {
@@ -202,15 +358,215 @@
   .hero-banner p {
     font-size: 16px;
   }
+  
+  .hero-badge {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+  
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 14px;
+  }
+  
+  .promo-section {
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+  
+  .promo-banner {
+    padding: 25px 15px;
+    min-height: 100px;
+  }
+  
+  .promo-banner h3 {
+    font-size: 18px;
+  }
+  
+  .promo-banner p {
+    font-size: 14px;
+  }
+  
+  .featured-section,
+  .bestsellers-section {
+    margin: 30px auto;
+    padding: 0 15px;
+  }
 
   .section-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .section-header h2 {
+    font-size: 22px;
   }
 
   .products-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  
+  .bestsellers-grid {
+    grid-template-columns: 1fr;
     gap: 15px;
+  }
+  
+  .bestseller-card {
+    padding: 12px;
+  }
+  
+  .bestseller-card img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .benefits-section {
+    margin: 40px auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 15px;
+  }
+  
+  .benefit-item {
+    padding: 20px 15px;
+  }
+  
+  .benefit-icon {
+    font-size: 36px;
+  }
+  
+  .benefit-item h3 {
+    font-size: 14px;
+  }
+  
+  .benefit-item p {
+    font-size: 12px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+  .hero-banner {
+    padding: 30px 12px;
+  }
+  
+  .hero-banner::before {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .hero-banner h1 {
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
+  
+  .hero-banner p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-badge {
+    font-size: 11px;
+    padding: 5px 12px;
+    margin-bottom: 15px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .cta-button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  
+  .promo-section {
+    margin: 20px auto;
+    padding: 0 10px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .promo-banner {
+    padding: 20px 15px;
+    min-height: 80px;
+  }
+  
+  .promo-banner h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .promo-banner p {
+    font-size: 13px;
+  }
+  
+  .featured-section,
+  .bestsellers-section {
+    margin: 25px auto;
+    padding: 0 10px;
+  }
+  
+  .section-header h2 {
+    font-size: 18px;
+  }
+  
+  .view-all {
+    font-size: 13px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .bestseller-card .rank {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+    top: -6px;
+    left: -6px;
+  }
+  
+  .bestseller-card img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .bestseller-info h4 {
+    font-size: 13px;
+  }
+  
+  .bestseller-stats .price {
+    font-size: 14px;
+  }
+  
+  .benefits-section {
+    margin: 30px auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .benefit-item {
+    padding: 15px 10px;
+  }
+  
+  .benefit-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .benefit-item h3 {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  
+  .benefit-item p {
+    font-size: 11px;
   }
 }

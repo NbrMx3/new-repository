@@ -76,15 +76,85 @@
 
 @media (max-width: 768px) {
   .search-page {
-    padding: 20px;
+    padding: 20px 15px;
   }
 
   .search-page h1 {
     font-size: 24px;
   }
 
+  .search-query {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .results-count {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
   .products-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 15px;
+  }
+
+  .no-results {
+    padding: 40px 20px;
+  }
+
+  .no-results h2 {
+    font-size: 20px;
+  }
+
+  .no-results p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-page {
+    padding: 15px 10px;
+  }
+
+  .search-page h1 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .search-query {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  .results-count {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .no-results {
+    padding: 30px 15px;
+    border-radius: 6px;
+  }
+
+  .no-results h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .no-results p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  .browse-btn {
+    padding: 10px 24px;
+    font-size: 13px;
+    border-radius: 3px;
   }
 }

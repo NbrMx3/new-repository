@@ -230,6 +230,7 @@
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-bottom: 12px;
 }
 
 .add-to-cart-btn:hover:not(:disabled) {
@@ -243,8 +244,26 @@
   cursor: not-allowed;
 }
 
-.add-to-cart-btn.added {
-  background-color: var(--success-color);
+.wishlist-btn {
+  width: 100%;
+  padding: 14px;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wishlist-btn:hover {
+  border-color: var(--primary-color);
+  background: rgba(232, 46, 4, 0.05);
+}
+
+.wishlist-btn.active {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .benefits-section {
@@ -280,15 +299,58 @@
   color: var(--text-color);
 }
 
+@media (max-width: 992px) {
+  .product-detail-container {
+    gap: 40px;
+    padding: 30px;
+  }
+
+  .product-title {
+    font-size: 28px;
+  }
+
+  .current-price {
+    font-size: 32px;
+  }
+}
+
 @media (max-width: 768px) {
+  .product-detail-page {
+    padding: 20px 15px;
+  }
+
+  .back-link {
+    margin-bottom: 20px;
+  }
+
   .product-detail-container {
     grid-template-columns: 1fr;
     gap: 30px;
     padding: 20px;
   }
 
+  .main-image {
+    max-width: 300px;
+  }
+
+  .discount-label {
+    top: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
   .product-title {
     font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .star {
+    font-size: 16px;
+  }
+
+  .rating-value {
+    font-size: 14px;
   }
 
   .current-price {
@@ -296,6 +358,171 @@
   }
 
   .original-price {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  .save-amount {
+    font-size: 12px;
+  }
+
+  .description-section h3 {
+    font-size: 16px;
+  }
+
+  .description-section p {
+    font-size: 14px;
+  }
+
+  .qty-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .qty-input {
+    width: 50px;
+  }
+
+  .add-to-cart-btn {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .wishlist-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-detail-page {
+    padding: 15px 10px;
+  }
+
+  .product-detail-container {
+    padding: 15px;
+    gap: 20px;
+    border-radius: 6px;
+  }
+
+  .main-image {
+    max-width: 100%;
+  }
+
+  .discount-label {
+    top: 8px;
+    left: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+
+  .product-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .rating-section {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .star {
+    font-size: 14px;
+  }
+
+  .rating-value,
+  .review-count {
+    font-size: 12px;
+  }
+
+  .price-section {
+    margin: 15px 0;
+    padding: 15px 0;
+  }
+
+  .price-container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .current-price {
+    font-size: 24px;
+  }
+
+  .original-price {
+    font-size: 14px;
+  }
+
+  .save-amount {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .stock-status {
+    font-size: 14px;
+  }
+
+  .description-section h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .description-section p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .action-section {
+    margin: 20px 0;
+    padding: 15px 0;
+  }
+
+  .quantity-selector label {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .qty-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .qty-input {
+    width: 45px;
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  .add-to-cart-btn {
+    padding: 12px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .wishlist-btn {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .benefit {
+    padding: 10px 0;
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .benefit span {
+    font-size: 16px;
+  }
+
+  .product-not-found {
+    padding: 40px 15px;
+    margin: 50px auto;
+  }
+
+  .product-not-found h2 {
+    font-size: 20px;
   }
 }

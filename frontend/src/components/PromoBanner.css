@@ -1,0 +1,83 @@
+.promo-banner {
+  background: linear-gradient(90deg, var(--primary-color), #ff6b4a);
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.promo-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.promo-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.promo-link {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 4px 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 13px;
+  transition: background-color 0.3s;
+}
+
+.promo-link:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.promo-close {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.promo-close:hover {
+  opacity: 1;
+}
+
+@media (max-width: 576px) {
+  .promo-banner {
+    padding: 8px 40px 8px 15px;
+  }
+
+  .promo-text {
+    font-size: 12px;
+  }
+
+  .promo-link {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+}
