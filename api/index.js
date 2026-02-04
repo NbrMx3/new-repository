@@ -1,12 +1,22 @@
 const express = require('express');
 const cors = require('cors');
 const sql = require('./config/database');
+const crypto = require('crypto');
 
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
+
+// Simple token generation (in production, use JWT)
+const generateToken = (userId) => {
+  return crypto.randomBytes(32).toString('hex') + '_' + userId;
+};
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -68,7 +78,7 @@ app.post('/api/auth/register', async (req, res) => {
     // Check if user exists
     const existing = await sql('SELECT id FROM users WHERE email = $1', [email]);
     if (existing.length > 0) {
-      return res.status(400).json({ success: false, message: 'User already exists' });
+      return res.status(400).json({ success: false, error: 'User already exists' });
     }
     
     // Insert new user (in production, hash the password!)
@@ -77,7 +87,10 @@ app.post('/api/auth/register', async (req, res) => {
       [name, email, password]
     );
     
-    res.json({ success: true, message: 'Registration successful', user: result[0] });
+    const user = result[0];
+    const token = generateToken(user.id);
+    
+    res.json({ success: true, message: 'Registration successful', user, token });
   } catch (error) {
     console.error('Error registering user:', error);
     res.status(500).json({ success: false, error: error.message });
@@ -94,12 +107,37 @@ app.post('/api/auth/login', async (req, res) => {
     );
     
     if (result.length > 0) {
-      res.json({ success: true, message: 'Login successful', user: result[0] });
+      const user = result[0];
+      const token = generateToken(user.id);
+      res.json({ success: true, message: 'Login successful', user, token });
     } else {
-      res.status(401).json({ success: false, message: 'Invalid credentials' });
+      res.status(401).json({ success: false, error: 'Invalid credentials' });
     }
   } catch (error) {
     console.error('Error logging in:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+app.get('/api/auth/me', async (req, res) => {
+  try {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return res.status(401).json({ success: false, error: 'No token provided' });
+    }
+    
+    const token = authHeader.split(' ')[1];
+    const userId = token.split('_').pop();
+    
+    const result = await sql('SELECT id, name, email FROM users WHERE id = $1', [userId]);
+    
+    if (result.length > 0) {
+      res.json(result[0]);
+    } else {
+      res.status(401).json({ success: false, error: 'Invalid token' });
+    }
+  } catch (error) {
+    console.error('Error getting current user:', error);
     res.status(500).json({ success: false, error: error.message });
   }
 });
