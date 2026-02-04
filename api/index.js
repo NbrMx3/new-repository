@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const sql = require('./config/database');
 
 const app = express();
 
@@ -7,14 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Mock data for demo
-const mockProducts = [
-  { id: 1, name: 'Sample Product 1', price: 29.99, category: 'electronics', image: 'https://via.placeholder.com/300' },
-  { id: 2, name: 'Sample Product 2', price: 49.99, category: 'clothing', image: 'https://via.placeholder.com/300' },
-  { id: 3, name: 'Sample Product 3', price: 19.99, category: 'books', image: 'https://via.placeholder.com/300' }
-];
-
-// Routes - Mock endpoints without database
+// Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'E-commerce API is running' });
 });
@@ -23,37 +17,152 @@ app.get('/api', (req, res) => {
   res.json({ status: 'ok', message: 'E-commerce API' });
 });
 
-app.get('/api/products', (req, res) => {
-  res.json({ success: true, products: mockProducts });
-});
-
-app.get('/api/products/:id', (req, res) => {
-  const product = mockProducts.find(p => p.id === parseInt(req.params.id));
-  if (product) {
-    res.json({ success: true, product });
-  } else {
-    res.status(404).json({ success: false, message: 'Product not found' });
+// Products routes
+app.get('/api/products', async (req, res) => {
+  try {
+    const { category, search, limit = 20, offset = 0 } = req.query;
+    
+    let query = 'SELECT * FROM products WHERE 1=1';
+    const params = [];
+    
+    if (category) {
+      query += ` AND category = $${params.length + 1}`;
+      params.push(category);
+    }
+    
+    if (search) {
+      query += ` AND (name ILIKE $${params.length + 1} OR description ILIKE $${params.length + 1})`;
+      params.push(`%${search}%`);
+    }
+    
+    query += ` LIMIT $${params.length + 1} OFFSET $${params.length + 2}`;
+    params.push(limit, offset);
+    
+    const products = await sql(query, params);
+    res.json({ success: true, products });
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    res.status(500).json({ success: false, error: error.message });
   }
 });
 
-app.post('/api/auth/register', (req, res) => {
-  res.json({ success: true, message: 'Registration successful', token: 'mock-token' });
+app.get('/api/products/:id', async (req, res) => {
+  try {
+    const result = await sql('SELECT * FROM products WHERE id = $1', [req.params.id]);
+    if (result.length > 0) {
+      res.json({ success: true, product: result[0] });
+    } else {
+      res.status(404).json({ success: false, message: 'Product not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching product:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
 });
 
-app.post('/api/auth/login', (req, res) => {
-  res.json({ success: true, message: 'Login successful', token: 'mock-token' });
+// Auth routes
+app.post('/api/auth/register', async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    
+    // Check if user exists
+    const existing = await sql('SELECT id FROM users WHERE email = $1', [email]);
+    if (existing.length > 0) {
+      return res.status(400).json({ success: false, message: 'User already exists' });
+    }
+    
+    // Insert new user (in production, hash the password!)
+    const result = await sql(
+      'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email',
+      [name, email, password]
+    );
+    
+    res.json({ success: true, message: 'Registration successful', user: result[0] });
+  } catch (error) {
+    console.error('Error registering user:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
 });
 
-app.get('/api/cart', (req, res) => {
-  res.json({ success: true, items: [] });
+app.post('/api/auth/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    
+    const result = await sql(
+      'SELECT id, name, email FROM users WHERE email = $1 AND password = $2',
+      [email, password]
+    );
+    
+    if (result.length > 0) {
+      res.json({ success: true, message: 'Login successful', user: result[0] });
+    } else {
+      res.status(401).json({ success: false, message: 'Invalid credentials' });
+    }
+  } catch (error) {
+    console.error('Error logging in:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
 });
 
-app.get('/api/wishlist', (req, res) => {
-  res.json({ success: true, items: [] });
+// Cart routes
+app.get('/api/cart', async (req, res) => {
+  try {
+    const userId = req.query.userId || 1; // Mock user ID for now
+    const result = await sql(
+      'SELECT c.*, p.name, p.price, p.image FROM cart c JOIN products p ON c.product_id = p.id WHERE c.user_id = $1',
+      [userId]
+    );
+    res.json({ success: true, items: result });
+  } catch (error) {
+    console.error('Error fetching cart:', error);
+    res.json({ success: true, items: [] }); // Return empty cart on error
+  }
 });
 
-app.get('/api/orders', (req, res) => {
-  res.json({ success: true, orders: [] });
+app.post('/api/cart', async (req, res) => {
+  try {
+    const { userId = 1, productId, quantity = 1 } = req.body;
+    
+    const result = await sql(
+      'INSERT INTO cart (user_id, product_id, quantity) VALUES ($1, $2, $3) ON CONFLICT (user_id, product_id) DO UPDATE SET quantity = cart.quantity + $3 RETURNING *',
+      [userId, productId, quantity]
+    );
+    
+    res.json({ success: true, item: result[0] });
+  } catch (error) {
+    console.error('Error adding to cart:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// Wishlist routes
+app.get('/api/wishlist', async (req, res) => {
+  try {
+    const userId = req.query.userId || 1;
+    const result = await sql(
+      'SELECT w.*, p.name, p.price, p.image FROM wishlist w JOIN products p ON w.product_id = p.id WHERE w.user_id = $1',
+      [userId]
+    );
+    res.json({ success: true, items: result });
+  } catch (error) {
+    console.error('Error fetching wishlist:', error);
+    res.json({ success: true, items: [] });
+  }
+});
+
+// Orders routes
+app.get('/api/orders', async (req, res) => {
+  try {
+    const userId = req.query.userId || 1;
+    const result = await sql(
+      'SELECT * FROM orders WHERE user_id = $1 ORDER BY created_at DESC',
+      [userId]
+    );
+    res.json({ success: true, orders: result });
+  } catch (error) {
+    console.error('Error fetching orders:', error);
+    res.json({ success: true, orders: [] });
+  }
 });
 
 // Error handling middleware
