@@ -1,0 +1,11 @@
+{
+  "name": "ecommerce-app",
+  "version": "1.0.0",
+  "description": "Full-stack e-commerce application",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix frontend",
+    "start": "node backend/server.js",
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\""
+  }
+}
