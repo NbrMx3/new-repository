@@ -7,32 +7,53 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Import routes from backend
-const authRoutes = require('../backend/routes/auth');
-const usersRoutes = require('../backend/routes/users');
-const productsRoutes = require('../backend/routes/products');
-const cartRoutes = require('../backend/routes/cart');
-const wishlistRoutes = require('../backend/routes/wishlist');
-const ordersRoutes = require('../backend/routes/orders');
-const notificationsRoutes = require('../backend/routes/notifications');
+// Mock data for demo
+const mockProducts = [
+  { id: 1, name: 'Sample Product 1', price: 29.99, category: 'electronics', image: 'https://via.placeholder.com/300' },
+  { id: 2, name: 'Sample Product 2', price: 49.99, category: 'clothing', image: 'https://via.placeholder.com/300' },
+  { id: 3, name: 'Sample Product 3', price: 19.99, category: 'books', image: 'https://via.placeholder.com/300' }
+];
 
-// Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/users', usersRoutes);
-app.use('/api/products', productsRoutes);
-app.use('/api/cart', cartRoutes);
-app.use('/api/wishlist', wishlistRoutes);
-app.use('/api/orders', ordersRoutes);
-app.use('/api/notifications', notificationsRoutes);
-
-// Health check
+// Routes - Mock endpoints without database
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'E-commerce API is running' });
 });
 
-// Root API route
 app.get('/api', (req, res) => {
   res.json({ status: 'ok', message: 'E-commerce API' });
+});
+
+app.get('/api/products', (req, res) => {
+  res.json({ success: true, products: mockProducts });
+});
+
+app.get('/api/products/:id', (req, res) => {
+  const product = mockProducts.find(p => p.id === parseInt(req.params.id));
+  if (product) {
+    res.json({ success: true, product });
+  } else {
+    res.status(404).json({ success: false, message: 'Product not found' });
+  }
+});
+
+app.post('/api/auth/register', (req, res) => {
+  res.json({ success: true, message: 'Registration successful', token: 'mock-token' });
+});
+
+app.post('/api/auth/login', (req, res) => {
+  res.json({ success: true, message: 'Login successful', token: 'mock-token' });
+});
+
+app.get('/api/cart', (req, res) => {
+  res.json({ success: true, items: [] });
+});
+
+app.get('/api/wishlist', (req, res) => {
+  res.json({ success: true, items: [] });
+});
+
+app.get('/api/orders', (req, res) => {
+  res.json({ success: true, orders: [] });
 });
 
 // Error handling middleware
