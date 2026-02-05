@@ -1,4 +1,25 @@
-const API_URL = import.meta.env.VITE_API_URL || '/api';
+// Dynamically determine API URL based on current host
+// This allows the app to work on both localhost and network IP (for mobile)
+const getApiUrl = () => {
+  // If environment variable is set, use it
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  
+  // For development: detect if we're on localhost or network IP
+  const hostname = window.location.hostname;
+  const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1';
+  
+  if (isLocalhost) {
+    // On localhost, use the Vite proxy
+    return '/api';
+  } else {
+    // On network IP (mobile device), connect directly to backend
+    return `http://${hostname}:5000/api`;
+  }
+};
+
+const API_URL = getApiUrl();
 
 // Get auth token from localStorage
 const getToken = () => localStorage.getItem('authToken');

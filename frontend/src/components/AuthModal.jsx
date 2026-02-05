@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
 import './AuthModal.css';
 
@@ -12,6 +13,7 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
   });
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const { login, register } = useAuth();
   const toast = useToast();
 
   if (!isOpen) return null;
@@ -58,16 +60,24 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
     
     setIsLoading(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
       if (mode === 'login') {
+        await login(formData.email, formData.password);
         toast.success('Welcome back! You are now logged in.');
       } else {
+        await register({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password
+        });
         toast.success('Account created successfully! Welcome to E-Com.');
       }
       onClose();
-    }, 1500);
+    } catch (error) {
+      toast.error(error.message || 'Authentication failed. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleOverlayClick = (e) => {

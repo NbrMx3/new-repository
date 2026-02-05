@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="80" fill="#e82e04"/>
+  <g fill="white">
+    <path d="M128 160h256v32H128z"/>
+    <path d="M144 224h224l-24 160H168z"/>
+    <circle cx="192" cy="416" r="24"/>
+    <circle cx="320" cy="416" r="24"/>
+    <path d="M240 128V96h32v32z"/>
+  </g>
+  <text x="256" y="300" text-anchor="middle" fill="white" font-size="80" font-family="Arial, sans-serif" font-weight="bold">E</text>
+</svg>

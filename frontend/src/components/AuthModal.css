@@ -245,11 +245,67 @@
 }
 
 @media (max-width: 480px) {
+  .auth-overlay {
+    padding: 10px;
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+  
   .auth-modal {
-    padding: 30px 20px;
+    padding: 25px 18px;
+    border-radius: 12px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .auth-modal .close-btn {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .auth-header {
+    margin-bottom: 20px;
+  }
+  
+  .auth-header h2 {
+    font-size: 22px;
+  }
+  
+  .auth-header p {
+    font-size: 13px;
+  }
+  
+  .auth-form {
+    gap: 15px;
+  }
+  
+  .form-group input {
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+  
+  .submit-btn {
+    padding: 14px;
+    font-size: 15px;
+    border-radius: 8px;
+    min-height: 48px;
   }
 
   .social-buttons {
     flex-direction: column;
+    gap: 10px;
+  }
+  
+  .social-btn {
+    padding: 14px;
+    min-height: 48px;
+  }
+  
+  .auth-footer {
+    margin-top: 20px;
+    padding-top: 15px;
   }
 }
