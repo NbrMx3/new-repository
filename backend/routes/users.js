@@ -8,6 +8,18 @@ router.put('/profile', authMiddleware, async (req, res) => {
   try {
     const { name, email, phone, avatar } = req.body;
     
+    // If email is being updated, check if it's already in use by another user
+    if (email) {
+      const emailCheck = await pool.query(
+        'SELECT id FROM users WHERE email = $1 AND id != $2',
+        [email.trim().toLowerCase(), req.user.id]
+      );
+      
+      if (emailCheck.rows.length > 0) {
+        return res.status(400).json({ error: 'Email already in use by another account' });
+      }
+    }
+    
     const result = await pool.query(
       `UPDATE users 
        SET name = COALESCE($1, name), 
@@ -17,7 +29,7 @@ router.put('/profile', authMiddleware, async (req, res) => {
            updated_at = NOW()
        WHERE id = $5
        RETURNING id, name, email, phone, avatar, join_date`,
-      [name, email, phone, avatar, req.user.id]
+      [name, email ? email.trim().toLowerCase() : null, phone, avatar, req.user.id]
     );
 
     res.json(result.rows[0]);

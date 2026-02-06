@@ -5,13 +5,59 @@ const jwt = require('jsonwebtoken');
 const pool = require('../config/database');
 const { authMiddleware } = require('../middleware/auth');
 
+// Validation helper functions
+const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const validatePassword = (password) => {
+  // Minimum 8 characters, at least one uppercase letter, one lowercase letter, one number
+  if (!password || password.length < 8) {
+    return { valid: false, message: 'Password must be at least 8 characters long' };
+  }
+  if (!/[A-Z]/.test(password)) {
+    return { valid: false, message: 'Password must contain at least one uppercase letter' };
+  }
+  if (!/[a-z]/.test(password)) {
+    return { valid: false, message: 'Password must contain at least one lowercase letter' };
+  }
+  if (!/[0-9]/.test(password)) {
+    return { valid: false, message: 'Password must contain at least one number' };
+  }
+  return { valid: true };
+};
+
 // Register
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password, phone } = req.body;
 
+    // Validate input
+    if (!name || !name.trim()) {
+      return res.status(400).json({ error: 'Name is required' });
+    }
+    
+    if (!email || !email.trim()) {
+      return res.status(400).json({ error: 'Email is required' });
+    }
+    
+    if (!validateEmail(email)) {
+      return res.status(400).json({ error: 'Invalid email format' });
+    }
+    
+    if (!password) {
+      return res.status(400).json({ error: 'Password is required' });
+    }
+    
+    // Validate password strength
+    const passwordValidation = validatePassword(password);
+    if (!passwordValidation.valid) {
+      return res.status(400).json({ error: passwordValidation.message });
+    }
+
     // Check if user exists
-    const existingUser = await pool.query('SELECT id FROM users WHERE email = $1', [email]);
+    const existingUser = await pool.query('SELECT id FROM users WHERE email = $1', [email.trim().toLowerCase()]);
     if (existingUser.rows.length > 0) {
       return res.status(400).json({ error: 'Email already registered' });
     }
@@ -26,7 +72,7 @@ router.post('/register', async (req, res) => {
       `INSERT INTO users (name, email, password, phone, join_date)
        VALUES ($1, $2, $3, $4, $5)
        RETURNING id, name, email, phone, avatar, join_date, created_at`,
-      [name, email, hashedPassword, phone || '', joinDate]
+      [name.trim(), email.trim().toLowerCase(), hashedPassword, phone || '', joinDate]
     );
 
     const user = result.rows[0];
@@ -56,10 +102,19 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    // Validate input
+    if (!email || !email.trim()) {
+      return res.status(400).json({ error: 'Email is required' });
+    }
+    
+    if (!password) {
+      return res.status(400).json({ error: 'Password is required' });
+    }
+
     // Find user
     const result = await pool.query(
       'SELECT id, name, email, password, phone, avatar, join_date FROM users WHERE email = $1',
-      [email]
+      [email.trim().toLowerCase()]
     );
 
     if (result.rows.length === 0) {
@@ -123,6 +178,21 @@ router.get('/me', authMiddleware, async (req, res) => {
 router.put('/password', authMiddleware, async (req, res) => {
   try {
     const { currentPassword, newPassword } = req.body;
+
+    // Validate input
+    if (!currentPassword) {
+      return res.status(400).json({ error: 'Current password is required' });
+    }
+    
+    if (!newPassword) {
+      return res.status(400).json({ error: 'New password is required' });
+    }
+    
+    // Validate new password strength
+    const passwordValidation = validatePassword(newPassword);
+    if (!passwordValidation.valid) {
+      return res.status(400).json({ error: passwordValidation.message });
+    }
 
     // Get user with password
     const result = await pool.query('SELECT password FROM users WHERE id = $1', [req.user.id]);

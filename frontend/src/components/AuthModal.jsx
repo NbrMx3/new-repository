@@ -41,8 +41,14 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
     
     if (!formData.password) {
       newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
+    } else if (formData.password.length < 8) {
+      newErrors.password = 'Password must be at least 8 characters';
+    } else if (!/[A-Z]/.test(formData.password)) {
+      newErrors.password = 'Password must contain at least one uppercase letter';
+    } else if (!/[a-z]/.test(formData.password)) {
+      newErrors.password = 'Password must contain at least one lowercase letter';
+    } else if (!/[0-9]/.test(formData.password)) {
+      newErrors.password = 'Password must contain at least one number';
     }
     
     if (mode === 'register' && formData.password !== formData.confirmPassword) {
@@ -136,6 +142,11 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
               className={errors.password ? 'error' : ''}
             />
             {errors.password && <span className="error-text">{errors.password}</span>}
+            {mode === 'register' && !errors.password && (
+              <span className="hint-text" style={{ fontSize: '0.85em', color: '#666', marginTop: '4px', display: 'block' }}>
+                Must be 8+ characters with uppercase, lowercase, and number
+              </span>
+            )}
           </div>
 
           {mode === 'register' && (
