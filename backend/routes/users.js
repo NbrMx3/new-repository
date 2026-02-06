@@ -2,9 +2,19 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../config/database');
 const { authMiddleware } = require('../middleware/auth');
+const rateLimit = require('express-rate-limit');
+
+// Rate limiter for profile update endpoint
+const profileUpdateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 10, // Limit each IP to 10 requests per windowMs
+  message: 'Too many profile update requests, please try again later',
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
 // Update user profile
-router.put('/profile', authMiddleware, async (req, res) => {
+router.put('/profile', authMiddleware, profileUpdateLimiter, async (req, res) => {
   try {
     const { name, email, phone, avatar } = req.body;
     
