@@ -143,7 +143,7 @@ const AuthModal = ({ isOpen, onClose, initialMode = 'login' }) => {
             />
             {errors.password && <span className="error-text">{errors.password}</span>}
             {mode === 'register' && !errors.password && (
-              <span className="hint-text" style={{ fontSize: '0.85em', color: '#666', marginTop: '4px', display: 'block' }}>
+              <span className="hint-text">
                 Must be 8+ characters with uppercase, lowercase, and number
               </span>
             )}
