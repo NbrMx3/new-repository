@@ -14,7 +14,7 @@ const profileUpdateLimiter = rateLimit({
 });
 
 // Update user profile
-router.put('/profile', authMiddleware, profileUpdateLimiter, async (req, res) => {
+router.put('/profile', profileUpdateLimiter, authMiddleware, async (req, res) => {
   try {
     const { name, email, phone, avatar } = req.body;
     
