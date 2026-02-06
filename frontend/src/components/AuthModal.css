@@ -115,6 +115,13 @@
   font-size: 12px;
 }
 
+.hint-text {
+  color: #757575;
+  font-size: 12px;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
 .forgot-password {
   text-align: right;
   margin-top: -10px;

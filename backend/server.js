@@ -2,6 +2,13 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
+// Validate critical environment variables
+if (!process.env.JWT_SECRET) {
+  console.error('❌ FATAL ERROR: JWT_SECRET environment variable is not defined');
+  console.error('Please set JWT_SECRET in your .env file');
+  process.exit(1);
+}
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
