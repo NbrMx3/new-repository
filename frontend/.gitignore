@@ -24,8 +24,3 @@ dist-ssr
 *.sw?
 .vercel
 .env*.local
-.vscode/
-*.log
-node_modules/
-.packagetracker
-argv.json
