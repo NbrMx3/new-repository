@@ -10,6 +10,14 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Unregister any stale service workers (e.g. from a previous PWA build)
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for (var reg of registrations) { reg.unregister(); }
+        });
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
