@@ -11,11 +11,18 @@
   <body>
     <div id="root"></div>
     <script>
-      // Unregister any stale service workers (e.g. from a previous PWA build)
+      // Replace any stale Workbox/PWA service worker with a no-op SW, then clear caches
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          for (var reg of registrations) { reg.unregister(); }
+        navigator.serviceWorker.register('/sw.js').then(function(reg) {
+          // Force the new (empty) SW to activate immediately
+          if (reg.waiting) reg.waiting.postMessage({ type: 'SKIP_WAITING' });
         });
+        // Also clear all caches from the page side
+        if ('caches' in window) {
+          caches.keys().then(function(names) {
+            names.forEach(function(name) { caches.delete(name); });
+          });
+        }
       }
     </script>
     <script type="module" src="/src/main.jsx"></script>
