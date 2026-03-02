@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import { productService } from '../services/productService';
+import { messagingService } from '../services/messagingService';
 import './ProductDetailPage.css';
 
 const ProductDetailPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const [addedToCart, setAddedToCart] = useState(false);
+  const [activeTab, setActiveTab] = useState('description');
+  const [contactingSupplier, setContactingSupplier] = useState(false);
   const { addToCart } = useCart();
+  const { user, isAuthenticated, isBuyer } = useAuth();
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const prod = await productService.getProductById(parseInt(id));
         setProduct(prod);
+        // Set initial quantity to MOQ if available
+        if (prod?.moq) {
+          setQuantity(prod.moq);
+        }
         setLoading(false);
       } catch (error) {
         console.error('Error fetching product:', error);
@@ -37,6 +47,51 @@ const ProductDetailPage = () => {
     }
   };
 
+  const handleRequestQuote = () => {
+    if (!isAuthenticated) {
+      navigate('/login', { state: { from: `/rfq/create/${product.id}` } });
+    } else {
+      navigate(`/rfq/create/${product.id}`);
+    }
+  };
+
+  const handleContactSupplier = async () => {
+    if (!isAuthenticated) {
+      navigate('/login', { state: { from: `/product/${product.id}` } });
+      return;
+    }
+
+    if (!product?.supplierId) return;
+
+    setContactingSupplier(true);
+    try {
+      const conversation = await messagingService.getOrCreateConversation(
+        { id: user.id, name: user.name, avatar: null, role: user.role },
+        product.supplierId,
+        product.supplierName,
+        { id: product.id, name: product.name, image: product.image }
+      );
+      navigate(`/messages?conversation=${conversation.id}`);
+    } catch (error) {
+      console.error('Error starting conversation:', error);
+    } finally {
+      setContactingSupplier(false);
+    }
+  };
+
+  // Calculate current price based on quantity and bulk pricing
+  const getCurrentPrice = () => {
+    if (!product?.bulkPricing || product.bulkPricing.length === 0) {
+      return product?.price || 0;
+    }
+    
+    // Find the applicable bulk pricing tier
+    const sortedTiers = [...product.bulkPricing].sort((a, b) => b.minQty - a.minQty);
+    const applicableTier = sortedTiers.find(tier => quantity >= tier.minQty);
+    
+    return applicableTier ? applicableTier.price : product.price;
+  };
+
   const discount = product
     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
     : 0;
@@ -54,6 +109,8 @@ const ProductDetailPage = () => {
     );
   }
 
+  const currentPrice = getCurrentPrice();
+
   return (
     <div className="product-detail-page">
       <Link to="/products" className="back-link">← Back to Products</Link>
@@ -69,6 +126,17 @@ const ProductDetailPage = () => {
         <div className="product-details">
           <h1 className="product-title">{product.name}</h1>
 
+          {/* Supplier Info */}
+          {product.supplierName && (
+            <div className="supplier-info-bar">
+              <span className="supplier-label">Supplier:</span>
+              <Link to={`/supplier/${product.supplierId}`} className="supplier-link">
+                {product.supplierName}
+              </Link>
+              <span className="verified-supplier">✓ Verified</span>
+            </div>
+          )}
+
           <div className="rating-section">
             <div className="stars">
               {[...Array(5)].map((_, i) => (
@@ -81,46 +149,118 @@ const ProductDetailPage = () => {
             <span className="review-count">({product.reviews} reviews)</span>
           </div>
 
-          <div className="price-section">
-            <div className="price-container">
-              <span className="current-price">¥{product.price.toFixed(2)}</span>
-              {product.originalPrice > product.price && (
-                <>
-                  <span className="original-price">¥{product.originalPrice.toFixed(2)}</span>
-                  <span className="save-amount">
-                    Save ¥{(product.originalPrice - product.price).toFixed(2)}
-                  </span>
-                </>
+          {/* B2B Pricing Section */}
+          <div className="b2b-pricing-section">
+            <div className="price-header">
+              <span className="current-price">¥{currentPrice.toFixed(2)}</span>
+              <span className="price-unit">/{product.unit || 'piece'}</span>
+              {product.originalPrice > currentPrice && (
+                <span className="original-price">¥{product.originalPrice.toFixed(2)}</span>
               )}
             </div>
+            
+            {/* Bulk Pricing Tiers */}
+            {product.bulkPricing && product.bulkPricing.length > 0 && (
+              <div className="bulk-pricing-tiers">
+                <h4>Bulk Pricing:</h4>
+                <div className="tiers-grid">
+                  {product.bulkPricing.map((tier, index) => (
+                    <div 
+                      key={index} 
+                      className={`tier ${quantity >= tier.minQty && (index === product.bulkPricing.length - 1 || quantity < product.bulkPricing[index + 1]?.minQty) ? 'active' : ''}`}
+                    >
+                      <span className="tier-qty">≥{tier.minQty} {product.unit || 'pcs'}</span>
+                      <span className="tier-price">¥{tier.price.toFixed(2)}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* MOQ Info */}
+            {product.moq && (
+              <div className="moq-notice">
+                <span className="moq-icon">📦</span>
+                <span>Minimum Order: <strong>{product.moq} {product.unit || 'pieces'}</strong></span>
+              </div>
+            )}
           </div>
 
           <div className="status-section">
             <div className={`stock-status ${product.inStock ? 'in-stock' : 'out-of-stock'}`}>
               {product.inStock ? '✓ In Stock' : '✗ Out of Stock'}
             </div>
+            {product.leadTime && (
+              <div className="lead-time">
+                <span className="lead-icon">⏱️</span>
+                Lead Time: {product.leadTime}
+              </div>
+            )}
           </div>
 
-          <div className="description-section">
-            <h3>Description</h3>
-            <p>{product.description}</p>
+          {/* Tabs for Description, Specifications, Packaging */}
+          <div className="product-tabs">
+            <div className="tabs-header">
+              <button 
+                className={`tab-btn ${activeTab === 'description' ? 'active' : ''}`}
+                onClick={() => setActiveTab('description')}
+              >
+                Description
+              </button>
+              {product.specifications && (
+                <button 
+                  className={`tab-btn ${activeTab === 'specs' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('specs')}
+                >
+                  Specifications
+                </button>
+              )}
+              {product.packagingDetails && (
+                <button 
+                  className={`tab-btn ${activeTab === 'packaging' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('packaging')}
+                >
+                  Packaging
+                </button>
+              )}
+            </div>
+            <div className="tab-content">
+              {activeTab === 'description' && (
+                <p>{product.description}</p>
+              )}
+              {activeTab === 'specs' && product.specifications && (
+                <table className="specs-table">
+                  <tbody>
+                    {Object.entries(product.specifications).map(([key, value]) => (
+                      <tr key={key}>
+                        <td className="spec-label">{key}</td>
+                        <td className="spec-value">{value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
+              {activeTab === 'packaging' && product.packagingDetails && (
+                <p>{product.packagingDetails}</p>
+              )}
+            </div>
           </div>
 
           <div className="action-section">
             <div className="quantity-selector">
-              <label>Quantity:</label>
+              <label>Quantity ({product.unit || 'pieces'}):</label>
               <div className="quantity-control">
                 <button 
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  onClick={() => setQuantity(Math.max(product.moq || 1, quantity - 1))}
                   className="qty-btn"
                 >
                   −
                 </button>
                 <input 
                   type="number" 
-                  min="1" 
+                  min={product.moq || 1}
                   value={quantity}
-                  onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                  onChange={(e) => setQuantity(Math.max(product.moq || 1, parseInt(e.target.value) || 1))}
                   className="qty-input"
                 />
                 <button 
@@ -130,14 +270,34 @@ const ProductDetailPage = () => {
                   +
                 </button>
               </div>
+              {product.moq && quantity < product.moq && (
+                <span className="moq-warning">Minimum order is {product.moq}</span>
+              )}
+            </div>
+
+            <div className="action-buttons">
+              <button 
+                onClick={handleAddToCart}
+                className={`add-to-cart-btn ${addedToCart ? 'added' : ''}`}
+                disabled={!product.inStock || (product.moq && quantity < product.moq)}
+              >
+                {addedToCart ? '✓ Added to Cart' : 'Add to Cart'}
+              </button>
+              
+              <button 
+                onClick={handleRequestQuote}
+                className="request-quote-btn"
+              >
+                📝 Request Quote
+              </button>
             </div>
 
             <button 
-              onClick={handleAddToCart}
-              className={`add-to-cart-btn ${addedToCart ? 'added' : ''}`}
-              disabled={!product.inStock}
+              onClick={handleContactSupplier}
+              className="contact-supplier-btn"
+              disabled={contactingSupplier}
             >
-              {addedToCart ? '✓ Added to Cart' : 'Add to Cart'}
+              {contactingSupplier ? '⏳ Starting chat...' : '💬 Contact Supplier'}
             </button>
           </div>
 

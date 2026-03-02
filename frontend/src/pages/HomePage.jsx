@@ -75,7 +75,7 @@ const HomePage = () => {
         <div className="benefit-item">
           <div className="benefit-icon">🚚</div>
           <h3>Fast Shipping</h3>
-          <p>Free delivery on orders over $50</p>
+          <p>Free delivery on orders over $5o</p>
         </div>
         <div className="benefit-item">
           <div className="benefit-icon">🛡️</div>
